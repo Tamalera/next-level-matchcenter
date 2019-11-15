@@ -83,8 +83,11 @@
     <div class="mt-6 pb-3 px-4">
       <h2 class="mb-2 text-xl font-bold tracking-wide uppercase">Liveticker</h2>
 
-      <div class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md">
-        <div @click="open = !open">
+      <div
+        v-show="showBet"
+        class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md"
+      >
+        <div @click="openBet = !openBet">
           <div class="flex justify-between">
             <h3 class="font-medium">
               Wie wird dieses Spiel ausgehen?
@@ -97,7 +100,7 @@
             Wette jetzt auf das Endresultat und gewinne 3 Punkte.
           </p>
         </div>
-        <div v-if="open">
+        <div v-if="openBet">
           <div class="flex flex-wrap">
             <div class="w-1/2 mt-3 px-2">
               <input
@@ -120,12 +123,43 @@
           <div class="flex justify-end">
             <button
               class="mt-3 px-4 py-2 rounded-lg bg-black hover:bg-gray-900 focus:outline-none text-white font-bold tracking-wide"
+              @click="changeVisability"
             >
               Tipp abgeben
             </button>
           </div>
         </div>
       </div>
+
+      <div
+        v-show="showPenalty"
+        class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md"
+      >
+        <div @click="openPenalty = !openPenalty">
+          <div class="flex justify-between">
+            <h3 class="font-medium">
+              Wo wird der Ball beim Penalty in das Tor fliegen?
+            </h3>
+          </div>
+        </div>
+        <div v-if="openPenalty">
+          <Penalty @clicked="onClick" />
+        </div>
+      </div>
+
+      <div class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md">
+        <div @click="openCorner = !openCorner">
+          <div class="flex justify-between">
+            <h3 class="font-medium">
+              Wer wird den Ball nach dem Eckstoss zuerst berühren?
+            </h3>
+          </div>
+        </div>
+        <div v-if="openCorner">
+          <Corner />
+        </div>
+      </div>
+
       <Liveticker :ticker="showTextTicker" />
     </div>
   </div>
@@ -133,14 +167,23 @@
 
 <script>
 import Liveticker from '@/components/Liveticker'
+import Corner from '@/components/Corner'
+import Penalty from '@/components/Penalty'
 
 export default {
   components: {
     Liveticker,
+    Corner,
+    Penalty,
   },
   data() {
     return {
-      open: false,
+      openBet: false,
+      openPenalty: false,
+      openCorner: false,
+      showPenalty: true,
+      showBet: true,
+      showCorner: true,
       showTextTicker: [],
       textTicker: [
         {
@@ -175,6 +218,14 @@ export default {
     sendMessage() {
       let next = this.textTicker.splice(0, 1)
       this.showTextTicker.unshift(...next)
+    },
+    onClick(value) {
+      this.openPenalty = value
+      this.showPenalty = false
+    },
+    changeVisability() {
+      this.openBet = false
+      this.showBet = false
     },
   },
 }
