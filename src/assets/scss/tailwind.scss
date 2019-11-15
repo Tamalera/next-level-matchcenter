@@ -1,3 +1,32 @@
 @tailwind base;
+
+@font-face {
+    font-family: UtilityOT;
+    font-style: black;
+    src: url(/font/UtilityOT/UtilityOT-Black.otf) format("otf");
+}
+@font-face {
+    font-family: UtilityOT;
+    font-style: Bold;
+    src: url(/font/UtilityOT/UtilityOT-Bold.otf) format("otf");
+}
+@font-face {
+    font-family: UtilityOT;
+    font-style: Light;
+    src: url(/font/UtilityOT/UtilityOT-Light.otf) format("otf");
+}
+
+@font-face {
+    font-family: UtilityOT;
+    font-style: Medi;
+    src: url(/font/UtilityOT/UtilityOT-Medi.otf) format("otf");
+}
+@font-face {
+    font-family: UtilityOT;
+    font-style: normal;
+    src: url(/font/UtilityOT/UtilityOT.otf) format("otf");
+}
+
 @tailwind components;
 @tailwind utilities;
+
