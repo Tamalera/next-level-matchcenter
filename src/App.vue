@@ -22,8 +22,13 @@ export default {
     // Socket Event Worker
     'socket.events'(events) {
       const event = events[0]
-      if (event && event.id && !this.$store.getters.eventsIsClosed(event.id)) {
-        console.log('working on event:', event)
+      if (
+        event &&
+        event.id &&
+        event.status === 'new' &&
+        !this.$store.getters.eventsIsClosed(event.id)
+      ) {
+        this.$store.commit('WORKING_ON_EVENT', event)
 
         switch (event.type) {
           case 'new-bet':

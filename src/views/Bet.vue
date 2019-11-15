@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <button
-      class="block mx-auto border-2 rounded-lg px-4 py-2"
+      class="block mx-auto px-4 py-2 border-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
       @click="triggerBetEvent"
     >
       Trigger
@@ -20,7 +20,7 @@ export default {
   methods: {
     triggerBetEvent() {
       this.$store.dispatch('send', {
-        id: 'event-' + this.eventId,
+        id: 'event-' + this.eventId, // event id
         type: 'new-bet',
         data: {
           name: 'nextGoal', // name of this particular bet

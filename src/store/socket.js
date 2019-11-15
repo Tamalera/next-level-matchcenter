@@ -21,7 +21,8 @@ export default {
       console.error(state, event)
     },
     SOCKET_ONMESSAGE(state, payload) {
-      console.log('socket message:', payload)
+      console.log('new socket message:', payload)
+      payload.status = 'new'
       state.events.unshift(payload)
     },
     SOCKET_RECONNECT(state, count) {
@@ -30,12 +31,20 @@ export default {
     SOCKET_RECONNECT_ERROR(state) {
       state.reconnectError = true
     },
+    WORKING_ON_EVENT(state, event) {
+      const e = state.events.find(e => e.id === event.id)
+      if (e) {
+        e.status = 'wip'
+        console.log(`event with id "${event.id}" is being worked on:`, event)
+      }
+    },
     REMOVE_EVENT(state, event) {
       const i = state.events.findIndex(e => e.id === event.id)
-      if (i >= 0 && i < state.events.length)
+      if (i >= 0 && i < state.events.length) {
         state.closedEventIds.unshift(
           ...state.events.splice(i, 1).map(e => e.id)
         )
+      }
     },
   },
 
