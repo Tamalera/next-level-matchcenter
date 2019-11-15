@@ -57,7 +57,7 @@ export default {
       }
       setTimeout(() => {
         this.exampleModalShowing = false
-        this.$router.push('/match')
+        this.$router.push('/')
       }, 4000)
     },
   },
