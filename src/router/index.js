@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
 import HomeSpecial from '../views/HomeSpecial.vue'
 import MiniGames from '../views/MiniGames.vue'
 import FashionCorner from '../views/FashionCorner.vue'
@@ -13,18 +11,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home,
+    name: 'match',
+    component: Match,
   },
   {
     path: '/fashion-corner',
     name: 'fashionCorner',
     component: FashionCorner,
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About,
   },
   {
     path: '/homespecial',
@@ -40,11 +33,6 @@ const routes = [
     path: '/bet',
     name: 'bet',
     component: Bet,
-  },
-  {
-    path: '/match',
-    name: 'match',
-    component: Match,
   },
 ]
 
