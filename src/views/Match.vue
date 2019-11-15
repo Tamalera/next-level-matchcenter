@@ -1,9 +1,7 @@
 <template>
   <div>
-    <div class="absolute top-0 left-0 mt-2 ml-2 opacity-25 hover:opacity-100">
-      <button
-        class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
-      >
+    <div class="absolute top-0 left-0 mt-2 ml-2 opacity-25">
+      <button class="px-4 py-2 rounded-lg bg-gray-100 focus:outline-none">
         Liveticker
       </button>
     </div>
@@ -28,28 +26,35 @@
         <h3 class="text-4xl">:</h3>
       </div>
       <div class="flex-grow flex flex-col text-center">
-        <h3 class="text-4xl">0</h3>
+        <h3 class="text-4xl">1</h3>
         <h4 class="text-lg tracking-wide">FC Basel</h4>
       </div>
     </div>
 
     <div class="mt-6 mx-auto px-4 leading-tight">
       <div class="flex">
-        <div class="w-5/12 text-sm text-gray-700 text-right">
-          Guillaume Hoarau
-        </div>
-        <div class="w-1/6 text-sm text-center font-medium">7'</div>
+        <div class="w-5/12 text-sm text-gray-700 text-right">Kevin Mbabu</div>
+        <div class="w-1/6 text-sm text-center font-medium">52'</div>
         <div class="w-5/12 text-sm text-gray-700"></div>
-      </div>
-      <div class="flex">
-        <div class="w-5/12 text-sm text-gray-700 text-right"></div>
-        <div class="w-1/6 text-sm text-center font-medium">9'</div>
-        <div class="w-5/12 text-sm text-gray-700">Alex Frey</div>
       </div>
       <div class="flex">
         <div class="w-5/12 text-sm text-gray-700 text-right"></div>
         <div class="w-1/6 text-sm text-center font-medium">22'</div>
         <div class="w-5/12 text-sm text-gray-700">Alex Frey</div>
+      </div>
+      <div class="flex">
+        <div class="w-5/12 text-sm text-gray-700 text-right">
+          Guillaume Hoarau
+        </div>
+        <div class="w-1/6 text-sm text-center font-medium">9'</div>
+        <div class="w-5/12 text-sm text-gray-700"></div>
+      </div>
+      <div class="flex">
+        <div class="w-5/12 text-sm text-gray-700 text-right">
+          Guillaume Hoarau
+        </div>
+        <div class="w-1/6 text-sm text-center font-medium">7'</div>
+        <div class="w-5/12 text-sm text-gray-700"></div>
       </div>
     </div>
 
