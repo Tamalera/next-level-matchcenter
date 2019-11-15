@@ -6,7 +6,7 @@
     <div class="absolute w-full abstand-oben">
       <div class="flex flex-wrap justify-content abstand-rand">
         <div
-          v-for="index in 6"
+          v-for="(n, index) in 6"
           :key="index"
           class="w-1/5 abstand-ball"
           @click="showPlayerDetail(index)"

@@ -3,7 +3,7 @@
     Corner
     <div class="flex flex-wrap sm:inline-flex md:block lg:hidden xl:flex -mx-2">
       <div
-        v-for="(n, index) in 30"
+        v-for="(n, index) in 22"
         :key="index"
         class="w-1/6 p-2 rounded overflow-hidden shadow-lg"
         @click="showPlayerDetail(index)"
