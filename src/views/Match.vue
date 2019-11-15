@@ -3,6 +3,7 @@
     <div class="absolute top-0 left-0 mt-2 ml-2 opacity-25 hover:opacity-100">
       <button
         class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
+        @click="sendMessage"
       >
         Liveticker
       </button>
@@ -72,53 +73,58 @@
 
     <div class="mt-6 pb-3 px-4">
       <h2 class="mb-2 text-xl font-bold tracking-wide uppercase">Liveticker</h2>
-
-      <div class="py-2 mb-2 last:mb-0">
-        <div class="flex justify-between">
-          <h3 class="font-medium">Ein wunderschöner Angriff</h3>
-          <div class="text-sm font-medium text-gray-700">75'</div>
-        </div>
-        <p class="mt-1 text-gray-700">
-          Diam senectus orci cras egestas quisque lectus est magna, congue
-          tincidunt nullam in class sem velit.
-        </p>
-      </div>
-      <div class="py-2 mb-2 last:mb-0">
-        <div class="flex justify-between">
-          <h3 class="font-medium">Hoarau verletzt</h3>
-          <div class="text-sm font-medium text-gray-700">73'</div>
-        </div>
-        <p class="mt-1 text-gray-700">
-          Diam senectus orci cras egestas quisque lectus est magna, congue
-          tincidunt nullam in class sem velit.
-        </p>
-      </div>
-      <div class="py-2 mb-2 last:mb-0">
-        <div class="flex justify-between">
-          <h3 class="font-medium">Wölfli hält Penalty</h3>
-          <div class="text-sm font-medium text-gray-700">72'</div>
-        </div>
-        <p class="mt-1 text-gray-700">
-          Diam senectus orci cras egestas quisque lectus est magna, congue
-          tincidunt nullam in class sem velit.
-        </p>
-      </div>
-      <div class="py-2 mb-2 last:mb-0">
-        <div class="flex justify-between">
-          <h3 class="font-medium">Penalty gegen YB</h3>
-          <div class="text-sm font-medium text-gray-700">71'</div>
-        </div>
-        <p class="mt-1 text-gray-700">
-          Diam senectus orci cras egestas quisque lectus est magna, congue
-          tincidunt nullam in class sem velit.
-        </p>
-      </div>
+      <Liveticker :ticker="showTextTicker" />
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import Liveticker from './Liveticker'
+
+export default {
+  components: {
+    Liveticker,
+  },
+  data() {
+    return {
+      showTextTicker: [],
+      textTicker: [
+        {
+          titel: 'Penalty gegen YB',
+          minute: "71'",
+          text:
+            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+        },
+        {
+          titel: 'Wölfli hält Penalty',
+          minute: "72'",
+          text:
+            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+        },
+        {
+          titel: 'Hoarau verletzt',
+          minute: "73'",
+          text:
+            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+        },
+        {
+          titel: 'Ein wunderschöner Angriff',
+          minute: "75'",
+          text:
+            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+        },
+      ],
+    }
+  },
+
+  methods: {
+    sendMessage() {
+      let next = this.textTicker.splice(0, 1)
+      this.showTextTicker.unshift(...next)
+      console.log(next)
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>
