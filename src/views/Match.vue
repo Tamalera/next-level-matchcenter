@@ -43,7 +43,7 @@
       <div class="flex">
         <div class="w-5/12 text-sm text-gray-700 text-right"></div>
         <div class="w-1/6 text-sm text-center font-medium">22'</div>
-        <div class="w-5/12 text-sm text-gray-700">Alex Frey</div>
+        <div class="w-5/12 text-sm text-gray-700">Alexander Frei</div>
       </div>
       <div class="flex">
         <div class="w-5/12 text-sm text-gray-700 text-right">
