@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import Penalty from '@/views/Penalty.vue'
-import Corner from '@/views/Corner.vue'
+import Penalty from '@/components/Penalty.vue'
+import Corner from '@/components/Corner.vue'
 
 export default {
   name: 'MiniGames',
