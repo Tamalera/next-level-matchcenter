@@ -3,8 +3,9 @@ import Vue from 'vue'
 export default {
   state: {
     isConnected: false,
-    message: '',
     reconnectError: false,
+    events: [],
+    closedEventIds: [],
   },
 
   mutations: {
@@ -19,9 +20,9 @@ export default {
     SOCKET_ONERROR(state, event) {
       console.error(state, event)
     },
-    SOCKET_ONMESSAGE(state, message) {
-      console.log('socket message:', message)
-      state.message = message
+    SOCKET_ONMESSAGE(state, payload) {
+      console.log('socket message:', payload)
+      state.events.unshift(payload)
     },
     SOCKET_RECONNECT(state, count) {
       console.info(state, count)
@@ -29,15 +30,24 @@ export default {
     SOCKET_RECONNECT_ERROR(state) {
       state.reconnectError = true
     },
-  },
-
-  actions: {
-    send: function({ state }, message) {
-      if (!state.isConnected) throw new Error('Not connected')
-
-      Vue.prototype.$socket.send(JSON.stringify(message))
+    REMOVE_EVENT(state, event) {
+      const i = state.events.findIndex(e => e.id === event.id)
+      if (i >= 0 && i < state.events.length)
+        state.closedEventIds.unshift(
+          ...state.events.splice(i, 1).map(e => e.id)
+        )
     },
   },
 
-  getters: {},
+  actions: {
+    send: function({ state }, payload) {
+      if (!state.isConnected) throw new Error('Not connected')
+
+      Vue.prototype.$socket.send(JSON.stringify(payload))
+    },
+  },
+
+  getters: {
+    eventsIsClosed: state => state.closedEventIds.includes,
+  },
 }

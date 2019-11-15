@@ -10,6 +10,34 @@
   </div>
 </template>
 
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  computed: {
+    ...mapState(['socket']),
+  },
+
+  watch: {
+    // Socket Event Worker
+    'socket.events'(events) {
+      const event = events[0]
+      if (event && event.id && !this.$store.getters.eventsIsClosed(event.id)) {
+        console.log('working on event:', event)
+
+        switch (event.type) {
+          case 'new-bet':
+            this.$store.dispatch('bets/newBet', event)
+            break
+        }
+
+        this.$store.commit('REMOVE_EVENT', event)
+      }
+    },
+  },
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
