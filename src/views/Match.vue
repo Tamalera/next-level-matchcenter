@@ -173,7 +173,6 @@ export default {
     sendMessage() {
       let next = this.textTicker.splice(0, 1)
       this.showTextTicker.unshift(...next)
-      console.log(next)
     },
   },
 }
