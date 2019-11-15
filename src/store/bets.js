@@ -21,7 +21,6 @@ export default {
       console.log('new bet', payload)
 
       if (payload && payload.data) {
-        payload.data.status = 'new'
         commit('ADD_BET', payload)
       }
     },
@@ -43,5 +42,7 @@ export default {
     },
   },
 
-  getters: {},
+  getters: {
+    recentBet: state => state.bets[0],
+  },
 }
