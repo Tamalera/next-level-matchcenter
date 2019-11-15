@@ -32,7 +32,9 @@ export default {
   },
 
   actions: {
-    send: function(context, message) {
+    send: function({ state }, message) {
+      if (!state.isConnected) throw new Error('Not connected')
+
       Vue.prototype.$socket.send(message)
     },
   },
