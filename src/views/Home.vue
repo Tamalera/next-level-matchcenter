@@ -6,13 +6,24 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import { mapState } from 'vuex'
+
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
   components: {
     HelloWorld,
+  },
+
+  computed: {
+    ...mapState(['socket']),
+  },
+
+  watch: {
+    'socket.isConnected'(isConnected) {
+      if (isConnected) this.$socket.send(JSON.stringify({ foo: 'bar' }))
+    },
   },
 }
 </script>
