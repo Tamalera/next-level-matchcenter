@@ -103,9 +103,9 @@ export default {
       this.exampleModalShowing = true
       this.indexCorner += index
       if (index == 3) {
-        this.message = 'Gratulation, du hesch dr richtig Ort gwäuut!!'
+        this.message = 'Gratulation, du hast der richtige Ort gewählt!!'
       } else {
-        this.message = 'Schad, ni ganz richtig'
+        this.message = 'Schade, nicht ganz korrekt'
       }
       setTimeout(() => {
         this.exampleModalShowing = false

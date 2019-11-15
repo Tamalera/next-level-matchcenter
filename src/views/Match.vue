@@ -1,11 +1,19 @@
 <template>
   <div class="pt-64">
-    <div class="z-10 fixed top-0 left-0 mt-2 ml-2 opacity-25 hover:opacity-100">
+    <div
+      class="z-10 fixed top-0 left-0 right-0 mt-2 mx-2 flex justify-between opacity-25"
+    >
       <button
         class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="sendMessage"
       >
         Liveticker
+      </button>
+      <button
+        class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
+        @click="running = !running"
+      >
+        {{ running ? 'Pause' : 'Start' }}
       </button>
     </div>
 
@@ -16,7 +24,11 @@
           backgroundImage: 'url(/images/stadium.png)',
         }"
       >
-        <h2 class="text-6xl tracking-wide">75:07</h2>
+        <h2 class="text-6xl tracking-wide">
+          {{ Math.floor(seconds / 60) | twoCharClock }}:{{
+            seconds % 60 | twoCharClock
+          }}
+        </h2>
       </div>
 
       <div
@@ -143,11 +155,14 @@
           </div>
         </div>
         <div v-if="openPenalty">
-          <Penalty @clicked="onClick" />
+          <Penalty @clicked="onClickPenalty" />
         </div>
       </div>
 
-      <div class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md">
+      <div
+        v-show="showCorner"
+        class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md"
+      >
         <div @click="openCorner = !openCorner">
           <div class="flex justify-between">
             <h3 class="font-medium">
@@ -156,7 +171,7 @@
           </div>
         </div>
         <div v-if="openCorner">
-          <Corner />
+          <Corner @clicked="onClickCorner" />
         </div>
       </div>
 
@@ -176,6 +191,14 @@ export default {
     Corner,
     Penalty,
   },
+
+  filters: {
+    twoCharClock(val) {
+      if (val < 10) return '0' + val
+      return val
+    },
+  },
+
   data() {
     return {
       openBet: false,
@@ -184,6 +207,9 @@ export default {
       showPenalty: true,
       showBet: true,
       showCorner: true,
+      interval: null,
+      running: true,
+      seconds: 123,
       showTextTicker: [],
       textTicker: [
         {
@@ -214,18 +240,42 @@ export default {
     }
   },
 
+  watch: {
+    running(running) {
+      this.startOrStopInterval(running)
+    },
+  },
+
+  mounted() {
+    this.startOrStopInterval(this.running)
+  },
+
   methods: {
     sendMessage() {
       let next = this.textTicker.splice(0, 1)
       this.showTextTicker.unshift(...next)
     },
-    onClick(value) {
+    onClickPenalty(value) {
       this.openPenalty = value
       this.showPenalty = false
+    },
+    onClickCorner(value) {
+      this.openCorner = value
+      this.showCorner = false
     },
     changeVisability() {
       this.openBet = false
       this.showBet = false
+    },
+    incrementTimer(seconds) {
+      this.seconds += seconds
+    },
+    startOrStopInterval(running) {
+      if (running) {
+        this.interval = setInterval(() => this.incrementTimer(2), 20)
+      } else {
+        clearInterval(this.interval)
+      }
     },
   },
 }
