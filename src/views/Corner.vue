@@ -6,7 +6,7 @@
         v-for="(n, index) in 22"
         :key="index"
         class="w-1/6 p-2 rounded overflow-hidden shadow-lg"
-        @click="showPlayerDetail(index)"
+        @click="rightPlayer(index)"
       >
         <img
           class="w-full"
@@ -14,60 +14,51 @@
           alt="image"
         />
         <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">{{ index }}</div>
+          <div class="font-bold text-xl mb-2">{{ index + 1 }}</div>
         </div>
       </div>
     </div>
     <!--Modal-->
-    <Modal :showing="exampleModalShowing" @close="exampleModalShowing = false">
-      <h2 class="text-xl font-bold text-gray-900">NAME</h2>
+    <ModalWoBu :showing="exampleModalShowing">
+      <h2 class="text-xl font-bold text-gray-900">{{ content.name }}</h2>
       <div class="flex flex-wrap -mx-1">
-        <img class="w-1/4 h-full" :src="content.bild" alt="Foto" />
-        <ul>
-          <li>Geburtstag: {{ content.name }}</li>
-          <li>Grösse: {{ content.name }}</li>
-          <li>Position: {{ content.name }}</li>
-          <li>Trikotnummer: {{ content.name }}</li>
-          <li>Motto: {{ content.name }}</li>
-        </ul>
-        <div class="flex flex-wrap -mx-1">
-          <img class="w-1/3 h-full" :src="content.trikot" alt="Auto" />
-          <img class="w-1/3 h-full" :src="content.auto" alt="Schuhe" />
-          <img class="w-1/3 h-full" :src="content.schuhe" alt="Trikot" />
-        </div>
+        <p>{{ message }}</p>
       </div>
-    </Modal>
+    </ModalWoBu>
   </div>
 </template>
 
 <script>
-import Modal from '@/components/Modal.vue'
+import ModalWoBu from '@/components/ModalWoBu.vue'
+import playerData from '../json/playerDummyData.json'
+import playerList from '../json/playerList.json'
 
 export default {
   name: 'FashionCorner',
   components: {
-    Modal,
+    ModalWoBu,
   },
   data: function() {
     return {
+      players: playerList.players,
       exampleModalShowing: false,
       content: {},
+      message: '',
     }
   },
   methods: {
-    showPlayerDetail: function(index) {
+    rightPlayer: function(index) {
+      this.content = playerData.allPlayers[index].content
       this.exampleModalShowing = true
-      this.content = {
-        name: index,
-        bild:
-          'https://fcbliveradio.ch/wp-content/uploads/2019/01/16-Fasnacht-148x300.png',
-        trikot:
-          'https://cdn.shopify.com/s/files/1/0033/0812/6308/products/IMG_4626_Trikot_N01-001_front_1000x.jpg?v=1562312948',
-        auto:
-          'https://www.cstatic-images.com/car-pictures/xl/USC80TSC032A021001.jpg',
-        schuhe:
-          'https://images-na.ssl-images-amazon.com/images/I/81yBgsPUnhL._UX500_.jpg',
+      if (index == 3) {
+        this.message = 'Gratulation, du hesch dr richtig Spiler gwäuut!!'
+      } else {
+        this.message = 'Schad, ni ganz richtig'
       }
+      setTimeout(() => {
+        this.exampleModalShowing = false
+        this.$router.push('/match')
+      }, 4000)
     },
   },
 }
