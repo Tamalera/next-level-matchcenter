@@ -6,7 +6,7 @@
         v-for="(n, index) in 30"
         :key="index"
         class="w-1/6 p-2 rounded overflow-hidden shadow-lg"
-        @click="exampleModalShowing = true"
+        @click="showPlayerDetail(index)"
       >
         <img
           class="w-full"
@@ -22,7 +22,7 @@
     <Modal :showing="exampleModalShowing" @close="exampleModalShowing = false">
       <h2 class="text-xl font-bold text-gray-900">Spieler</h2>
       <p class="mb-6">
-        Fakten zum Speiler
+        {{ content }}
       </p>
       <button
         class="bg-blue-600 text-white px-4 py-2 text-sm uppercase tracking-wide font-bold rounded-lg"
@@ -45,7 +45,14 @@ export default {
   data: function() {
     return {
       exampleModalShowing: false,
+      content: {},
     }
+  },
+  methods: {
+    showPlayerDetail: function(index) {
+      this.exampleModalShowing = true
+      this.content = index
+    },
   },
 }
 </script>
