@@ -53,6 +53,23 @@
       </div>
     </div>
 
+    <div class="mt-6 mx-4 py-5 px-6 bg-black rounded-lg shadow-lg">
+      <h2 class="text-xl text-yellow-100 font-bold tracking-wide uppercase">
+        Homespecial
+      </h2>
+      <p class="mt-1 text-gray-400">
+        Dieses Spiel ist zu Hause in Bern. Wette jetzt auf die Homespecials!
+      </p>
+      <div class="mt-3 flex justify-center">
+        <router-link
+          to="/homespecial"
+          class="px-4 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 focus:outline-none font-bold tracking-wide"
+        >
+          Los geht's!
+        </router-link>
+      </div>
+    </div>
+
     <div class="mt-6 pb-3 px-4">
       <h2 class="mb-2 text-xl font-bold tracking-wide uppercase">Liveticker</h2>
 

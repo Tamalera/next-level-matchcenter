@@ -61,7 +61,7 @@
 
             <div class="flex justify-end">
               <button
-                class="mt-3 px-4 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 focus:outline-none font-bold"
+                class="mt-3 px-4 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 focus:outline-none font-bold tracking-wide"
                 @click="$store.dispatch('bets/betOnBet', bet)"
               >
                 Tipp abgeben
