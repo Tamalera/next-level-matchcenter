@@ -11,7 +11,7 @@
       <div class="w-1/6 relative">
         <router-link
           to="/"
-          class="absolute w-20 h-20 -mt-4 flex justify-center items-center rounded-full bg-yellow-500 shadow-lg"
+          class="center-h absolute w-20 h-20 -mt-4 flex justify-center items-center rounded-full bg-yellow-500 shadow-lg"
         >
           <svg
             class="w-1/2"
@@ -60,4 +60,9 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.center-h {
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
