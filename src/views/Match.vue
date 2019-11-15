@@ -25,9 +25,7 @@
         }"
       >
         <h2 class="text-6xl tracking-wide">
-          {{ Math.floor(seconds / 60) | twoCharClock }}:{{
-            seconds % 60 | twoCharClock
-          }}
+          {{ minutes | twoCharClock }}:{{ extraSeconds | twoCharClock }}
         </h2>
       </div>
 
@@ -35,43 +33,34 @@
         class="w-2/3 -mt-12 mx-auto py-4 flex items-start bg-black text-yellow-100 rounded-lg shadow-lg"
       >
         <div class="flex-grow flex flex-col text-center">
-          <h3 class="text-4xl">3</h3>
+          <h3 class="text-4xl">
+            {{ teamGoals(filteredGoals, 'home').length }}
+          </h3>
           <h4 class="text-lg tracking-wide">BSC YB</h4>
         </div>
         <div class="text-center">
           <h3 class="text-4xl">:</h3>
         </div>
         <div class="flex-grow flex flex-col text-center">
-          <h3 class="text-4xl">1</h3>
+          <h3 class="text-4xl">
+            {{ teamGoals(filteredGoals, 'away').length }}
+          </h3>
           <h4 class="text-lg tracking-wide">FC Basel</h4>
         </div>
       </div>
     </div>
 
     <div class="mt-6 mx-auto px-4 leading-tight">
-      <div class="flex">
-        <div class="w-5/12 text-sm text-gray-700 text-right">Kevin Mbabu</div>
-        <div class="w-1/6 text-sm text-center font-medium">52'</div>
-        <div class="w-5/12 text-sm text-gray-700"></div>
-      </div>
-      <div class="flex">
-        <div class="w-5/12 text-sm text-gray-700 text-right"></div>
-        <div class="w-1/6 text-sm text-center font-medium">22'</div>
-        <div class="w-5/12 text-sm text-gray-700">Alexander Frei</div>
-      </div>
-      <div class="flex">
+      <div v-for="(goal, i) in filteredGoals" :key="i" class="flex">
         <div class="w-5/12 text-sm text-gray-700 text-right">
-          Guillaume Hoarau
+          {{ goal.team === 'home' ? goal.name : '' }}
         </div>
-        <div class="w-1/6 text-sm text-center font-medium">9'</div>
-        <div class="w-5/12 text-sm text-gray-700"></div>
-      </div>
-      <div class="flex">
-        <div class="w-5/12 text-sm text-gray-700 text-right">
-          Guillaume Hoarau
+        <div class="w-1/6 text-sm text-center font-medium">
+          {{ goal.minute }}'
         </div>
-        <div class="w-1/6 text-sm text-center font-medium">7'</div>
-        <div class="w-5/12 text-sm text-gray-700"></div>
+        <div class="w-5/12 text-sm text-gray-700">
+          {{ goal.team === 'away' ? goal.name : '' }}
+        </div>
       </div>
     </div>
 
@@ -175,7 +164,7 @@
         </div>
       </div>
 
-      <Liveticker :ticker="showTextTicker" />
+      <Liveticker :ticker="filteredTickerEvents" />
     </div>
   </div>
 </template>
@@ -208,36 +197,71 @@ export default {
       showBet: true,
       showCorner: true,
       interval: null,
-      running: true,
-      seconds: 123,
-      showTextTicker: [],
-      textTicker: [
+      running: false,
+      seconds: 0,
+      open: false,
+      goals: [
+        { minute: 7, team: 'home', name: 'Guillaume Hoarau' },
+        { minute: 9, team: 'home', name: 'Guillaume Hoarau' },
+        { minute: 22, team: 'away', name: 'Alexander Frei' },
+        { minute: 52, team: 'home', name: 'Kevin Mbabu' },
+      ],
+      tickerEvents: [
         {
           titel: 'Penalty gegen YB',
-          minute: "71'",
+          minute: 71,
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
           titel: 'Wölfli hält Penalty',
-          minute: "72'",
+          minute: 72,
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
           titel: 'Hoarau verletzt',
-          minute: "73'",
+          minute: 73,
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
           titel: 'Ein wunderschöner Angriff',
-          minute: "75'",
+          minute: 75,
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
       ],
     }
+  },
+
+  computed: {
+    minutes() {
+      return Math.floor(this.seconds / 60)
+    },
+    extraSeconds() {
+      return this.seconds % 60
+    },
+
+    filteredTickerEvents() {
+      return this.tickerEvents
+        .filter(e => e.minute <= this.minutes)
+        .sort((a, b) => {
+          if (a.minute > b.minute) return -1
+          if (a.minute < b.minute) return 1
+          return 0
+        })
+    },
+
+    filteredGoals() {
+      return this.goals
+        .filter(e => e.minute <= this.minutes)
+        .sort((a, b) => {
+          if (a.minute > b.minute) return -1
+          if (a.minute < b.minute) return 1
+          return 0
+        })
+    },
   },
 
   watch: {
@@ -276,6 +300,10 @@ export default {
       } else {
         clearInterval(this.interval)
       }
+    },
+
+    teamGoals(goals, teamname) {
+      return goals.filter(e => e.team === teamname)
     },
   },
 }
