@@ -1,4 +1,5 @@
 # yellow-bears-ui
+YB Hackathon 2019 Challenge 4 - Next Level YB Matchcenter
 
 ## Project setup
 ```
@@ -15,10 +16,14 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### Linting
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+// Incl. fixing use:
+npm run lint --fix
+```
+
+:soccer: :computer: :hearts:
