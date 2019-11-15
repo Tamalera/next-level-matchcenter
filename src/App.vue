@@ -10,7 +10,7 @@
       </router-link>
       <div class="w-1/6 relative">
         <router-link
-          to="/match"
+          to="/"
           class="absolute w-20 h-20 -mt-8 flex justify-center items-center rounded-full bg-yellow-500 shadow-lg"
         >
           <svg
