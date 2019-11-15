@@ -20,6 +20,11 @@
 
 <script>
 export default {
-  props: ['ticker'],
+  props: {
+    ticker: {
+      type: Array,
+      default: () => [],
+    },
+  },
 }
 </script>

@@ -132,7 +132,7 @@
 </template>
 
 <script>
-import Liveticker from './Liveticker'
+import Liveticker from '@/components/Liveticker'
 
 export default {
   components: {
