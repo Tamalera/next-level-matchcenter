@@ -35,7 +35,7 @@ export default {
     send: function({ state }, message) {
       if (!state.isConnected) throw new Error('Not connected')
 
-      Vue.prototype.$socket.send(message)
+      Vue.prototype.$socket.send(JSON.stringify(message))
     },
   },
 

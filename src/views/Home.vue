@@ -22,7 +22,7 @@ export default {
 
   watch: {
     'socket.isConnected'(isConnected) {
-      if (isConnected) this.$socket.send(JSON.stringify({ foo: 'bar' }))
+      if (isConnected) this.$socket.send({ foo: 'bar' })
     },
   },
 }
