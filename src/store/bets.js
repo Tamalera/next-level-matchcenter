@@ -33,8 +33,9 @@ export default {
     },
 
     betOnBet({ commit, dispatch }, payload) {
-      if (payload && payload.data && payload.data.userBet) {
-        dispatch('sendMessage', payload)
+      if (payload && payload.data) {
+        payload.type = 'bet-on-bet'
+        dispatch('sendMessage', payload, { root: true })
 
         commit('REMOVE_BET', payload)
         console.log('bet on bet', payload)
