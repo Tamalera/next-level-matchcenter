@@ -4,14 +4,14 @@
       <router-view />
     </div>
 
-    <div class="fixed bottom-0 w-full py-4 flex flex-between bg-yellow-500">
-      <router-link to="/bet" class="w-5/12 text-center font-medium">
+    <div class="fixed bottom-0 w-full flex flex-between bg-yellow-500">
+      <router-link to="/bet" class="w-5/12 py-4 text-center font-medium">
         Wetten & Gewinnen
       </router-link>
       <div class="w-1/6 relative">
         <router-link
           to="/"
-          class="absolute w-20 h-20 -mt-8 flex justify-center items-center rounded-full bg-yellow-500 shadow-lg"
+          class="center-h absolute w-20 h-20 -mt-4 flex justify-center items-center rounded-full bg-yellow-500 shadow-lg"
         >
           <svg
             class="w-1/2"
@@ -24,7 +24,10 @@
           </svg>
         </router-link>
       </div>
-      <router-link to="/fashion-corner" class="w-5/12 text-center font-medium">
+      <router-link
+        to="/fashion-corner"
+        class="w-5/12 py-4 text-center font-medium"
+      >
         Fashion Corner
       </router-link>
     </div>
@@ -57,4 +60,9 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.center-h {
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>

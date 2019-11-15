@@ -1,10 +1,10 @@
 <template>
-  <div class="px-2">
-    <div class="flex flex-wrap sm:inline-flex md:block lg:hidden xl:flex -mx-2">
+  <div class="container my-12 mx-auto px-4 md:px-12">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4">
       <div
         v-for="(player, index) in players"
         :key="index"
-        class="w-1/6 p-2 rounded overflow-hidden shadow-lg"
+        class="my-1 px-1 w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
         @click="showPlayerDetail(index)"
       >
         <img class="w-full" :src="player.foto" alt="image" />
