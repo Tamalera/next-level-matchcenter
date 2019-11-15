@@ -23,7 +23,7 @@ export default {
     SOCKET_ONMESSAGE(state, payload) {
       console.log('new socket message:', payload)
       payload.status = 'new'
-      state.events.unshift(payload)
+      state.events.push(payload)
     },
     SOCKET_RECONNECT(state, count) {
       console.info(state, count)
@@ -41,22 +41,24 @@ export default {
     REMOVE_EVENT(state, event) {
       const i = state.events.findIndex(e => e.id === event.id)
       if (i >= 0 && i < state.events.length) {
-        state.closedEventIds.unshift(
-          ...state.events.splice(i, 1).map(e => e.id)
-        )
+        state.events.splice(i, 1)
       }
     },
   },
 
   actions: {
-    send: function({ state }, payload) {
+    sendMessage: function({ state }, payload) {
       if (!state.isConnected) throw new Error('Not connected')
 
       Vue.prototype.$socket.send(JSON.stringify(payload))
     },
-  },
 
-  getters: {
-    eventsIsClosed: state => state.closedEventIds.includes,
+    nextEvent: function({ state, commit }) {
+      const event = state.events.find(e => e.status === 'new')
+      if (event && event.id) {
+        commit('WORKING_ON_EVENT', event)
+        return event
+      }
+    },
   },
 }

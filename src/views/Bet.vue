@@ -19,7 +19,7 @@ export default {
 
   methods: {
     triggerBetEvent() {
-      this.$store.dispatch('send', {
+      this.$store.dispatch('sendMessage', {
         id: 'event-' + this.eventId, // event id
         type: 'new-bet',
         data: {

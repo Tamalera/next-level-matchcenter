@@ -20,16 +20,9 @@ export default {
 
   watch: {
     // Socket Event Worker
-    'socket.events'(events) {
-      const event = events[0]
-      if (
-        event &&
-        event.id &&
-        event.status === 'new' &&
-        !this.$store.getters.eventsIsClosed(event.id)
-      ) {
-        this.$store.commit('WORKING_ON_EVENT', event)
-
+    async 'socket.events'() {
+      const event = await this.$store.dispatch('nextEvent')
+      if (event) {
         switch (event.type) {
           case 'new-bet':
             this.$store.dispatch('bets/newBet', event)
