@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="banner">
-      Mini Games
+    <div class="bg-yellow-500 h-24 p-4 flex items-center">
+      <h1 class="text-5xl">Mini Games</h1>
     </div>
-    <Penalty />
-    <Corner />
+    <Penalty v-if="true" />
+    <Corner v-if="false" />
   </div>
 </template>
 
