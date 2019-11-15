@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import HomeSpecial from '../views/HomeSpecial.vue'
 import MiniGames from '../views/MiniGames.vue'
 import FashionCorner from '../views/FashionCorner.vue'
 import Bet from '../views/Bet.vue'
@@ -23,6 +24,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: About,
+  },
+  {
+    path: '/homespecial',
+    name: 'homespecial',
+    component: HomeSpecial,
   },
   {
     path: '/mini-games',
