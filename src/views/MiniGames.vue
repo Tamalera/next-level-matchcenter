@@ -3,8 +3,8 @@
     <div class="bg-yellow-500 h-24 p-4 flex items-center">
       <h1 class="text-5xl">Mini Games</h1>
     </div>
-    <Penalty v-if="true" />
-    <Corner v-if="false" />
+    <Penalty v-if="false" />
+    <Corner v-if="true" />
   </div>
 </template>
 

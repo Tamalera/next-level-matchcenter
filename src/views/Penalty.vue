@@ -9,7 +9,7 @@
           v-for="index in 6"
           :key="index"
           class="w-1/5 abstand-ball"
-          @click="exampleModalShowing = true"
+          @click="showPlayerDetail(index)"
         >
           <img src="../assets/fussball.svg" alt="Fussball" class="mx-auto" />
         </div>
@@ -18,15 +18,9 @@
     <!--Modal-->
     <Modal :showing="exampleModalShowing" @close="exampleModalShowing = false">
       <h2 class="text-xl font-bold text-gray-900">Ecken</h2>
-      <p class="mb-6">
-        Fakten zum Speiler
-      </p>
-      <button
-        class="bg-blue-600 text-white px-4 py-2 text-sm uppercase tracking-wide font-bold rounded-lg"
-        @click="exampleModalShowing = false"
-      >
-        Close
-      </button>
+      <div class="flex flex-wrap -mx-1">
+        <p>Nummer: {{ content.name }}</p>
+      </div>
     </Modal>
   </div>
 </template>
@@ -91,14 +85,23 @@
 import Modal from '@/components/Modal.vue'
 
 export default {
-  name: 'Penalty',
+  name: 'FashionCorner',
   components: {
     Modal,
   },
   data: function() {
     return {
       exampleModalShowing: false,
+      content: {},
     }
+  },
+  methods: {
+    showPlayerDetail: function(index) {
+      this.exampleModalShowing = true
+      this.content = {
+        name: index,
+      }
+    },
   },
 }
 </script>
