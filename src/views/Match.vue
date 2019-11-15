@@ -78,10 +78,53 @@
     <div class="mt-6 pb-3 px-4">
       <h2 class="mb-2 text-xl font-bold tracking-wide uppercase">Liveticker</h2>
 
+      <div class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md">
+        <div @click="open = !open">
+          <div class="flex justify-between">
+            <h3 class="font-medium">
+              Wie wird dieses Spiel ausgehen?
+            </h3>
+            <div class="flex-shrink-0 text-sm font-medium text-gray-700">
+              3 Punkte
+            </div>
+          </div>
+          <p class="mt-1 text-gray-700">
+            Wette jetzt auf das Endresultat und gewinne 3 Punkte.
+          </p>
+        </div>
+        <div v-if="open">
+          <div class="flex flex-wrap">
+            <div class="w-1/2 mt-3 px-2">
+              <input
+                type="number"
+                min="0"
+                placeholder="Heim"
+                class="w-full px-4 py-2 rounded-lg bg-yellow-100 focus:outline-none"
+              />
+            </div>
+            <div class="w-1/2 mt-3 px-2">
+              <input
+                type="number"
+                min="0"
+                placeholder="Gast"
+                class="w-full px-4 py-2 rounded-lg bg-yellow-100 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          <div class="flex justify-end">
+            <button
+              class="mt-3 px-4 py-2 rounded-lg bg-black hover:bg-gray-900 focus:outline-none text-white font-bold tracking-wide"
+            >
+              Tipp abgeben
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="py-2 mb-2 last:mb-0">
         <div class="flex justify-between">
           <h3 class="font-medium">Ein wunderschöner Angriff</h3>
-          <div class="text-sm font-medium text-gray-700">75'</div>
+          <div class="flex-shrink-0 text-sm font-medium text-gray-700">75'</div>
         </div>
         <p class="mt-1 text-gray-700">
           Diam senectus orci cras egestas quisque lectus est magna, congue
@@ -91,7 +134,7 @@
       <div class="py-2 mb-2 last:mb-0">
         <div class="flex justify-between">
           <h3 class="font-medium">Hoarau verletzt</h3>
-          <div class="text-sm font-medium text-gray-700">73'</div>
+          <div class="flex-shrink-0 text-sm font-medium text-gray-700">73'</div>
         </div>
         <p class="mt-1 text-gray-700">
           Diam senectus orci cras egestas quisque lectus est magna, congue
@@ -101,7 +144,7 @@
       <div class="py-2 mb-2 last:mb-0">
         <div class="flex justify-between">
           <h3 class="font-medium">Wölfli hält Penalty</h3>
-          <div class="text-sm font-medium text-gray-700">72'</div>
+          <div class="flex-shrink-0 text-sm font-medium text-gray-700">72'</div>
         </div>
         <p class="mt-1 text-gray-700">
           Diam senectus orci cras egestas quisque lectus est magna, congue
@@ -111,7 +154,7 @@
       <div class="py-2 mb-2 last:mb-0">
         <div class="flex justify-between">
           <h3 class="font-medium">Penalty gegen YB</h3>
-          <div class="text-sm font-medium text-gray-700">71'</div>
+          <div class="flex-shrink-0 text-sm font-medium text-gray-700">71'</div>
         </div>
         <p class="mt-1 text-gray-700">
           Diam senectus orci cras egestas quisque lectus est magna, congue
@@ -123,7 +166,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      open: false,
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>
