@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="absolute top-0 left-0 mt-2 ml-2 opacity-25 hover:opacity-100">
+  <div class="pt-64">
+    <div class="z-10 fixed top-0 left-0 mt-2 ml-2 opacity-25 hover:opacity-100">
       <button
         class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="sendMessage"
@@ -9,28 +9,30 @@
       </button>
     </div>
 
-    <div
-      class="pt-8 pb-16 flex flex-col items-center bg-no-repeat bg-center bg-cover shadow-inner "
-      :style="{
-        backgroundImage: 'url(/images/stadium.png)',
-      }"
-    >
-      <h2 class="text-6xl tracking-wide">75:07</h2>
-    </div>
+    <div class="fixed top-0 w-full">
+      <div
+        class="pt-8 pb-16 flex flex-col items-center bg-no-repeat bg-center bg-cover shadow-inner "
+        :style="{
+          backgroundImage: 'url(/images/stadium.png)',
+        }"
+      >
+        <h2 class="text-6xl tracking-wide">75:07</h2>
+      </div>
 
-    <div
-      class="w-2/3 -mt-12 mx-auto py-4 flex items-start bg-black text-yellow-100 rounded-lg shadow-lg"
-    >
-      <div class="flex-grow flex flex-col text-center">
-        <h3 class="text-4xl">3</h3>
-        <h4 class="text-lg tracking-wide">BSC YB</h4>
-      </div>
-      <div class="text-center">
-        <h3 class="text-4xl">:</h3>
-      </div>
-      <div class="flex-grow flex flex-col text-center">
-        <h3 class="text-4xl">1</h3>
-        <h4 class="text-lg tracking-wide">FC Basel</h4>
+      <div
+        class="w-2/3 -mt-12 mx-auto py-4 flex items-start bg-black text-yellow-100 rounded-lg shadow-lg"
+      >
+        <div class="flex-grow flex flex-col text-center">
+          <h3 class="text-4xl">3</h3>
+          <h4 class="text-lg tracking-wide">BSC YB</h4>
+        </div>
+        <div class="text-center">
+          <h3 class="text-4xl">:</h3>
+        </div>
+        <div class="flex-grow flex flex-col text-center">
+          <h3 class="text-4xl">1</h3>
+          <h4 class="text-lg tracking-wide">FC Basel</h4>
+        </div>
       </div>
     </div>
 
