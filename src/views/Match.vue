@@ -22,41 +22,45 @@
       </div>
     </div>
 
-    <div class="mt-8 mx-auto px-4">
+    <div class="mt-6 mx-auto px-4 leading-tight">
       <div class="flex">
-        <div class="w-5/12 text-right text-gray-700">Guillaume Hoarau</div>
-        <div class="w-1/6 text-center font-medium">7'</div>
-        <div class="w-5/12 text-gray-700"></div>
+        <div class="w-5/12 text-sm text-gray-700 text-right">
+          Guillaume Hoarau
+        </div>
+        <div class="w-1/6 text-sm text-center font-medium">7'</div>
+        <div class="w-5/12 text-sm text-gray-700"></div>
       </div>
       <div class="flex">
-        <div class="w-5/12 text-right text-gray-700"></div>
-        <div class="w-1/6 text-center font-medium">9'</div>
-        <div class="w-5/12 text-gray-700">Alex Frey</div>
+        <div class="w-5/12 text-sm text-gray-700 text-right"></div>
+        <div class="w-1/6 text-sm text-center font-medium">9'</div>
+        <div class="w-5/12 text-sm text-gray-700">Alex Frey</div>
       </div>
       <div class="flex">
-        <div class="w-5/12 text-right text-gray-700"></div>
-        <div class="w-1/6 text-center font-medium">22'</div>
-        <div class="w-5/12 text-gray-700">Alex Frey</div>
+        <div class="w-5/12 text-sm text-gray-700 text-right"></div>
+        <div class="w-1/6 text-sm text-center font-medium">22'</div>
+        <div class="w-5/12 text-sm text-gray-700">Alex Frey</div>
       </div>
     </div>
 
-    <div class="mt-4 px-4">
-      <div class="py-4">
+    <div class="mt-6 pb-3 px-4">
+      <h2 class="mb-2 text-xl font-bold tracking-wide uppercase">Liveticker</h2>
+
+      <div class="py-2 mb-2 last:mb-0">
         <div class="flex justify-between">
-          <h3 class="text-xl">Ein wunderschöner Angriff</h3>
-          <div class="self-center text-lg">29'</div>
+          <h3 class="font-medium">Ein wunderschöner Angriff</h3>
+          <div class="text-sm font-medium text-gray-700">29'</div>
         </div>
         <p class="mt-1 text-gray-700">
           Diam senectus orci cras egestas quisque lectus est magna, congue
           tincidunt nullam in class sem velit.
         </p>
       </div>
-      <div class="py-4">
+      <div class="py-2 mb-2 last:mb-0">
         <div class="flex justify-between">
-          <h3 class="text-xl">Ein wunderschöner Angriff</h3>
-          <div class="self-center text-lg">29'</div>
+          <h3 class="font-medium">Hoarau verletzt</h3>
+          <div class="text-sm font-medium text-gray-700">27'</div>
         </div>
-        <p class="mt-2 text-gray-700">
+        <p class="mt-1 text-gray-700">
           Diam senectus orci cras egestas quisque lectus est magna, congue
           tincidunt nullam in class sem velit.
         </p>
