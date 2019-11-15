@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import MiniGames from '../components/MiniGames.vue'
+import MiniGames from '../views/MiniGames.vue'
+import FashionCorner from '../views/FashionCorner.vue'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,11 @@ const routes = [
     component: Home,
   },
   {
+    path: '/fashion-corner',
+    name: 'fashionCorner',
+    component: FashionCorner,
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -21,7 +27,7 @@ const routes = [
     component: About,
   },
   {
-    path: '/miniGames',
+    path: '/mini-games',
     name: 'miniGames',
     component: MiniGames,
   },

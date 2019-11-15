@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <p>Test</p>
+  <div>
+    Mini Games
   </div>
 </template>
 
