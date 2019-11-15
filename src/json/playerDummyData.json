@@ -1,0 +1,94 @@
+{
+  "allPlayers": [
+    {
+      "content": {
+        "name": "A",
+        "geburtsTag": "23.04.1999",
+        "groesse": "1.86 m",
+        "position": "Verteidiger",
+        "trikot": "14",
+        "sponsor": "Nike",
+        "motto": "Carpe Diem",
+        "bild": "https://fcbliveradio.ch/wp-content/uploads/2019/01/16-Fasnacht-148x300.png",
+        "trikotPic": "https://cdn.shopify.com/s/files/1/0033/0812/6308/products/IMG_4626_Trikot_N01-001_front_1000x.jpg?v=1562312948",
+        "auto": "https://www.cstatic-images.com/car-pictures/xl/USC80TSC032A021001.jpg",
+        "schuhe": "https://images-na.ssl-images-amazon.com/images/I/81yBgsPUnhL._UX500_.jpg"
+      }
+    },
+    {
+      "content": {
+        "name": "B",
+        "geburtsTag": "23.04.1999",
+        "groesse": "1.86 m",
+        "position": "Verteidiger",
+        "trikot": "14",
+        "sponsor": "Nike",
+        "motto": "Carpe Diem",
+        "bild": "https://fcbliveradio.ch/wp-content/uploads/2019/01/16-Fasnacht-148x300.png",
+        "trikotPic": "https://cdn.shopify.com/s/files/1/0033/0812/6308/products/IMG_4626_Trikot_N01-001_front_1000x.jpg?v=1562312948",
+        "auto": "https://www.cstatic-images.com/car-pictures/xl/USC80TSC032A021001.jpg",
+        "schuhe": "https://images-na.ssl-images-amazon.com/images/I/81yBgsPUnhL._UX500_.jpg"
+      }
+    },
+    {
+      "content": {
+        "name": "C",
+        "geburtsTag": "23.04.1999",
+        "groesse": "1.86 m",
+        "position": "Verteidiger",
+        "trikot": "14",
+        "sponsor": "Nike",
+        "motto": "Carpe Diem",
+        "bild": "https://fcbliveradio.ch/wp-content/uploads/2019/01/16-Fasnacht-148x300.png",
+        "trikotPic": "https://cdn.shopify.com/s/files/1/0033/0812/6308/products/IMG_4626_Trikot_N01-001_front_1000x.jpg?v=1562312948",
+        "auto": "https://www.cstatic-images.com/car-pictures/xl/USC80TSC032A021001.jpg",
+        "schuhe": "https://images-na.ssl-images-amazon.com/images/I/81yBgsPUnhL._UX500_.jpg"
+      }
+    },
+    {
+      "content": {
+        "name": "D",
+        "geburtsTag": "23.04.1999",
+        "groesse": "1.86 m",
+        "position": "Verteidiger",
+        "trikot": "14",
+        "sponsor": "Nike",
+        "motto": "Carpe Diem",
+        "bild": "https://fcbliveradio.ch/wp-content/uploads/2019/01/16-Fasnacht-148x300.png",
+        "trikotPic": "https://cdn.shopify.com/s/files/1/0033/0812/6308/products/IMG_4626_Trikot_N01-001_front_1000x.jpg?v=1562312948",
+        "auto": "https://www.cstatic-images.com/car-pictures/xl/USC80TSC032A021001.jpg",
+        "schuhe": "https://images-na.ssl-images-amazon.com/images/I/81yBgsPUnhL._UX500_.jpg"
+      }
+    },
+    {
+      "content": {
+        "name": "E",
+        "geburtsTag": "23.04.1999",
+        "groesse": "1.86 m",
+        "position": "Verteidiger",
+        "trikot": "14",
+        "sponsor": "Nike",
+        "motto": "Carpe Diem",
+        "bild": "https://fcbliveradio.ch/wp-content/uploads/2019/01/16-Fasnacht-148x300.png",
+        "trikotPic": "https://cdn.shopify.com/s/files/1/0033/0812/6308/products/IMG_4626_Trikot_N01-001_front_1000x.jpg?v=1562312948",
+        "auto": "https://www.cstatic-images.com/car-pictures/xl/USC80TSC032A021001.jpg",
+        "schuhe": "https://images-na.ssl-images-amazon.com/images/I/81yBgsPUnhL._UX500_.jpg"
+      }
+    },
+    {
+      "content": {
+        "name": "F",
+        "geburtsTag": "23.04.1999",
+        "groesse": "1.86 m",
+        "position": "Verteidiger",
+        "trikot": "14",
+        "sponsor": "Nike",
+        "motto": "Carpe Diem",
+        "bild": "https://fcbliveradio.ch/wp-content/uploads/2019/01/16-Fasnacht-148x300.png",
+        "trikotPic": "https://cdn.shopify.com/s/files/1/0033/0812/6308/products/IMG_4626_Trikot_N01-001_front_1000x.jpg?v=1562312948",
+        "auto": "https://www.cstatic-images.com/car-pictures/xl/USC80TSC032A021001.jpg",
+        "schuhe": "https://images-na.ssl-images-amazon.com/images/I/81yBgsPUnhL._UX500_.jpg"
+      }
+    }
+  ]
+}
