@@ -29,6 +29,7 @@ module.exports = {
 
   variants: {
     margin: ['responsive', 'last'],
+    borderWidth: ['responsive', 'last'],
   },
 
   plugins: [],
