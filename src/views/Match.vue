@@ -1,4 +1,8 @@
 <template>
+<<<<<<< HEAD
+  <div class="pt-64 pb-16">
+    <div class="z-10 fixed top-0 left-0 mt-2 ml-2 opacity-25 hover:opacity-100">
+=======
   <div class="pt-64">
     <div
       class="z-10 fixed top-0 left-0 right-0 mt-2 mx-2 flex justify-end opacity-25"
@@ -15,6 +19,7 @@
       >
         +5
       </button>
+>>>>>>> cf228281a9a87c0edf0a01bcc993ed7ee348b36d
       <button
         class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="running = !running"
