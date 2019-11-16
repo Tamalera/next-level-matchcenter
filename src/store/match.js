@@ -8,15 +8,27 @@ export default {
     INCREMENT_TIMER(state, seconds) {
       state.timer += seconds
     },
+
+    SET_INTERVAL(state, interval) {
+      state.interval = interval
+    },
+
+    CLEAR_INTERVAL(state) {
+      clearInterval(state.interval)
+      state.interval = null
+    },
   },
 
   actions: {
     startTimer({ commit }) {
-      this.interval = setInterval(() => commit('INCREMENT_TIMER', 2), 20)
+      commit(
+        'SET_INTERVAL',
+        setInterval(() => commit('INCREMENT_TIMER', 2), 20)
+      )
     },
 
-    stopTimer() {
-      clearInterval(this.interval)
+    stopTimer({ commit }) {
+      commit('CLEAR_INTERVAL')
     },
   },
 
