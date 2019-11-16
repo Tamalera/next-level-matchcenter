@@ -25,7 +25,7 @@
 
     <div class="fixed z-10 top-0 w-full">
       <div
-        class="pt-8 pb-16 flex flex-col items-center bg-no-repeat bg-center bg-cover shadow-inner "
+        class="box-shadow-fade pt-8 pb-16 flex flex-col items-center bg-no-repeat bg-center bg-cover shadow-inner "
         :style="{
           backgroundImage: 'url(/images/stadium.png)',
         }"
@@ -243,4 +243,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box-shadow-fade {
+  box-shadow: 0 -10px 50px 60px #fff;
+}
+</style>
