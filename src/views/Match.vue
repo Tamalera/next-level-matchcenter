@@ -76,7 +76,10 @@
       </div>
     </div>
 
-    <div class="mt-6 mx-4 py-5 px-6 bg-black rounded-lg shadow-lg">
+    <div
+      v-if="minutes < 45"
+      class="mt-6 mx-4 py-5 px-6 bg-black rounded-lg shadow-lg"
+    >
       <h2 class="text-xl text-yellow-100 font-bold tracking-wide uppercase">
         Homespecial
       </h2>
