@@ -20,17 +20,17 @@
           <br />
           <div class="content-center userinfo">
             <h3 class="text-center text-xl">Benutzerinformationen</h3>
-            <table class="table-fixed content-center">
+            <table class="table-fixed content-center w-full">
               <tr class="content-center">
-                <th class="w-1/2 px-4 py-2">Vorname:</th>
+                <th class="w-1/2 px-4 py-2 text-right">Vorname:</th>
                 <td class="w-1/2 px-4 py-2">Sebastian</td>
               </tr>
               <tr class="content-center">
-                <th class="w-1/2 px-4 py-2">Nachname:</th>
+                <th class="w-1/2 px-4 py-2 text-right">Nachname:</th>
                 <td class="w-1/2 px-4 py-2">Helbig</td>
               </tr>
               <tr class="content-center">
-                <th class="w-1/2 px-4 py-2">Alter:</th>
+                <th class="w-1/2 px-4 py-2 text-right">Alter:</th>
                 <td class="w-1/2 px-4 py-2">26</td>
               </tr>
             </table>
