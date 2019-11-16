@@ -5,12 +5,16 @@
     >
       <button
         class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
-        @click="incrementTimer(-5 * 60)"
-      ></button>
+        @click="$store.commit('match/INCREMENT_TIMER', -5 * 60)"
+      >
+        -5
+      </button>
       <button
         class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
-        @click="incrementTimer(5 * 60)"
-      ></button>
+        @click="$store.commit('match/INCREMENT_TIMER', 5 * 60)"
+      >
+        +5
+      </button>
       <button
         class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="running = !running"
@@ -27,15 +31,13 @@
         }"
       >
         <h2 v-if="minutes < 90" class="text-6xl tracking-wide">
-          {{ minutes | twoCharClock }}:{{ extraSeconds | twoCharClock }}
+          {{ minutes | twoCharClock }}:{{ seconds | twoCharClock }}
         </h2>
         <h2 v-if="minutes >= 90" class="text-5xl tracking-wide">
           90:00
         </h2>
         <h3 v-if="minutes >= 90" class="-mt-1 text-lg">
-          + {{ (minutes - 90) | twoCharClock }}:{{
-            extraSeconds | twoCharClock
-          }}
+          + {{ (minutes - 90) | twoCharClock }}:{{ seconds | twoCharClock }}
         </h3>
       </div>
 
@@ -179,6 +181,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import Liveticker from '@/components/Liveticker'
 import Corner from '@/components/Corner'
 import Penalty from '@/components/Penalty'
@@ -207,7 +211,6 @@ export default {
       showCorner: true,
       interval: null,
       running: false,
-      seconds: 5463,
       open: false,
       goals: [
         { minute: 7, team: 'home', name: 'Guillaume Hoarau' },
@@ -245,12 +248,7 @@ export default {
   },
 
   computed: {
-    minutes() {
-      return Math.floor(this.seconds / 60)
-    },
-    extraSeconds() {
-      return this.seconds % 60
-    },
+    ...mapGetters('match', ['minutes', 'seconds']),
 
     filteredTickerEvents() {
       return this.tickerEvents
@@ -300,15 +298,12 @@ export default {
       this.openBet = false
       this.showBet = false
     },
-    incrementTimer(seconds) {
-      this.seconds += seconds
-      if (this.seconds < 0) this.seconds = 0
-    },
+
     startOrStopInterval(running) {
       if (running) {
-        this.interval = setInterval(() => this.incrementTimer(2), 20)
+        this.$store.dispatch('match/startTimer')
       } else {
-        clearInterval(this.interval)
+        this.$store.dispatch('match/stopTimer')
       }
     },
 
