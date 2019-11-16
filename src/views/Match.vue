@@ -131,6 +131,7 @@ export default {
       ],
       tickerEvents: [
         {
+          id: 1,
           type: 'bet',
           betType: 'result',
           minute: 5,
@@ -139,6 +140,7 @@ export default {
           text: 'Wette jetzt auf das Endresultat und gewinne drei Punkte.',
         },
         {
+          id: 2,
           type: 'bet',
           betType: 'corner',
           minute: 68,
@@ -148,6 +150,7 @@ export default {
             'Versuche deine Erfahrung und dein Glück und gewinne einen Punkt.',
         },
         {
+          id: 3,
           type: 'info',
           minute: 71,
           title: 'Penalty gegen YB',
@@ -155,6 +158,7 @@ export default {
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
+          id: 4,
           type: 'bet',
           betType: 'penalty',
           minute: 71,
@@ -163,6 +167,7 @@ export default {
           text: 'Gewinne zwei Punkte in dem du richtig ratest.',
         },
         {
+          id: 5,
           type: 'info',
           minute: 72,
           title: 'Wölfli hält Penalty',
@@ -170,6 +175,7 @@ export default {
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
+          id: 6,
           type: 'info',
           minute: 73,
           title: 'Hoarau verletzt',
@@ -177,6 +183,7 @@ export default {
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
+          id: 7,
           type: 'info',
           minute: 75,
           title: 'Ein wunderschöner Angriff',

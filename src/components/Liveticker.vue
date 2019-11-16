@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="(event, i) in events" :key="i" class="mb-2 last:mb-0">
+    <div v-for="(event, i) in filteredEvents" :key="i" class="mb-2 last:mb-0">
       <div v-if="event.type === 'info'" class="py-2">
         <div class="flex justify-between">
           <h3 class="font-medium">
@@ -20,6 +20,7 @@
         :event="event"
         :open="open === i"
         @click="setOpen(i)"
+        @submit="hiddenEventIds.push(event.id)"
       />
 
       <div
@@ -40,7 +41,7 @@
           </p>
         </div>
         <div v-if="open === i">
-          <Penalty />
+          <Penalty @clicked="hiddenEventIds.push(event.id)" />
         </div>
       </div>
 
@@ -62,7 +63,7 @@
           </p>
         </div>
         <div v-if="open === i">
-          <Corner />
+          <Corner @clicked="hiddenEventIds.push(event.id)" />
         </div>
       </div>
     </div>
@@ -91,7 +92,14 @@ export default {
   data() {
     return {
       open: null,
+      hiddenEventIds: [],
     }
+  },
+
+  computed: {
+    filteredEvents() {
+      return this.events.filter(e => !this.hiddenEventIds.includes(e.id))
+    },
   },
 
   methods: {

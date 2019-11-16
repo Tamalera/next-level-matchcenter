@@ -36,6 +36,7 @@
       <div class="flex justify-end">
         <button
           class="mt-3 px-4 py-2 rounded-lg bg-black hover:bg-gray-900 focus:outline-none text-white font-bold tracking-wide"
+          @click="$emit('submit')"
         >
           Tipp abgeben
         </button>
