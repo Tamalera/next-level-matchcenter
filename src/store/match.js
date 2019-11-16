@@ -1,6 +1,6 @@
 export default {
   state: {
-    timer: 0,
+    timer: 5400,
     interval: null,
   },
 
