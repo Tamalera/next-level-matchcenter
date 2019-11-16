@@ -1,7 +1,7 @@
 <template>
   <div class="pt-64 pb-16">
     <div
-      class="z-10 fixed top-0 left-0 right-0 mt-2 mx-2 flex justify-end opacity-25"
+      class="fixed z-20 top-0 left-0 right-0 mt-2 mx-2 flex justify-end opacity-25"
     >
       <button
         class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
@@ -23,7 +23,7 @@
       </button>
     </div>
 
-    <div class="fixed top-0 w-full">
+    <div class="fixed z-10 top-0 w-full">
       <div
         class="pt-8 pb-16 flex flex-col items-center bg-no-repeat bg-center bg-cover shadow-inner "
         :style="{
@@ -76,7 +76,10 @@
       </div>
     </div>
 
-    <div class="mt-6 mx-4 py-5 px-6 bg-black rounded-lg shadow-lg">
+    <div
+      v-if="minutes < 45"
+      class="mt-6 mx-4 py-5 px-6 bg-black rounded-lg shadow-lg"
+    >
       <h2 class="text-xl text-yellow-100 font-bold tracking-wide uppercase">
         Homespecial
       </h2>
@@ -96,86 +99,7 @@
     <div class="mt-6 pb-3 px-4">
       <h2 class="mb-2 text-xl font-bold tracking-wide uppercase">Liveticker</h2>
 
-      <div
-        v-show="showBet"
-        class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md"
-      >
-        <div @click="openBet = !openBet">
-          <div class="flex justify-between">
-            <h3 class="font-medium">
-              Wie wird dieses Spiel ausgehen?
-            </h3>
-            <div class="flex-shrink-0 text-sm font-medium text-gray-700">
-              3 Punkte
-            </div>
-          </div>
-          <p class="mt-1 text-gray-700">
-            Wette jetzt auf das Endresultat und gewinne 3 Punkte.
-          </p>
-        </div>
-        <div v-if="openBet">
-          <div class="flex flex-wrap">
-            <div class="w-1/2 mt-3 px-2">
-              <input
-                type="number"
-                min="0"
-                placeholder="Heim"
-                class="w-full px-4 py-2 rounded-lg bg-yellow-100 focus:outline-none"
-              />
-            </div>
-            <div class="w-1/2 mt-3 px-2">
-              <input
-                type="number"
-                min="0"
-                placeholder="Gast"
-                class="w-full px-4 py-2 rounded-lg bg-yellow-100 focus:outline-none"
-              />
-            </div>
-          </div>
-
-          <div class="flex justify-end">
-            <button
-              class="mt-3 px-4 py-2 rounded-lg bg-black hover:bg-gray-900 focus:outline-none text-white font-bold tracking-wide"
-              @click="changeVisability"
-            >
-              Tipp abgeben
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div
-        v-show="showPenalty"
-        class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md"
-      >
-        <div @click="openPenalty = !openPenalty">
-          <div class="flex justify-between">
-            <h3 class="font-medium">
-              Wo wird der Ball beim Penalty in das Tor fliegen?
-            </h3>
-          </div>
-        </div>
-        <div v-if="openPenalty">
-          <Penalty @clicked="onClickPenalty" />
-        </div>
-      </div>
-
-      <div
-        v-show="showCorner"
-        class="py-4 px-5 mb-2 last:mb-0 bg-yellow-500 rounded-lg shadow-md"
-      >
-        <div @click="openCorner = !openCorner">
-          <div class="flex justify-between">
-            <h3 class="font-medium">
-              Wer wird den Ball nach dem Eckstoss zuerst berühren?
-            </h3>
-          </div>
-        </div>
-        <div v-if="openCorner">
-          <Corner @clicked="onClickCorner" />
-        </div>
-      </div>
-      <Liveticker :ticker="filteredTickerEvents" />
+      <Liveticker :events="filteredTickerEvents" />
     </div>
   </div>
 </template>
@@ -184,14 +108,10 @@
 import { mapGetters } from 'vuex'
 
 import Liveticker from '@/components/Liveticker'
-import Corner from '@/components/Corner'
-import Penalty from '@/components/Penalty'
 
 export default {
   components: {
     Liveticker,
-    Corner,
-    Penalty,
   },
 
   filters: {
@@ -203,13 +123,6 @@ export default {
 
   data() {
     return {
-      openBet: false,
-      openPenalty: false,
-      openCorner: false,
-      showPenalty: true,
-      showBet: true,
-      showCorner: true,
-      open: false,
       goals: [
         { minute: 7, team: 'home', name: 'Guillaume Hoarau' },
         { minute: 9, team: 'home', name: 'Guillaume Hoarau' },
@@ -218,26 +131,62 @@ export default {
       ],
       tickerEvents: [
         {
-          titel: 'Penalty gegen YB',
+          id: 1,
+          type: 'bet',
+          betType: 'result',
+          minute: 5,
+          points: 3,
+          title: 'Wie wird dieses Spiel ausgehen?',
+          text: 'Wette jetzt auf das Endresultat und gewinne drei Punkte.',
+        },
+        {
+          id: 2,
+          type: 'bet',
+          betType: 'corner',
+          minute: 68,
+          points: 1,
+          title: 'Ein Eckstoss für YB. Wer wird den Ball als erster berühren?',
+          text:
+            'Versuche deine Erfahrung und dein Glück und gewinne einen Punkt.',
+        },
+        {
+          id: 3,
+          type: 'info',
           minute: 71,
+          title: 'Penalty gegen YB',
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
-          titel: 'Wölfli hält Penalty',
+          id: 4,
+          type: 'bet',
+          betType: 'penalty',
+          minute: 71,
+          points: 2,
+          title: 'Wo wird der Penaltyschütze den Ball ins Tor schiessen?',
+          text: 'Gewinne zwei Punkte in dem du richtig ratest.',
+        },
+        {
+          id: 5,
+          type: 'info',
           minute: 72,
+          title: 'Wölfli hält Penalty',
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
-          titel: 'Hoarau verletzt',
+          id: 6,
+          type: 'info',
           minute: 73,
+          title: 'Hoarau verletzt',
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
         {
-          titel: 'Ein wunderschöner Angriff',
+          id: 7,
+          type: 'info',
           minute: 75,
+          title: 'Ein wunderschöner Angriff',
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
         },
@@ -254,6 +203,8 @@ export default {
         .sort((a, b) => {
           if (a.minute > b.minute) return -1
           if (a.minute < b.minute) return 1
+          if (a.type === 'bet' && b.type === 'info') return -1
+          if (a.type === 'info' && b.type === 'bet') return 1
           return 0
         })
     },
@@ -273,7 +224,6 @@ export default {
         return !!this.$store.state.match.interval
       },
       set(val) {
-        console.log(val)
         if (val) this.$store.dispatch('match/startTimer')
         else this.$store.dispatch('match/stopTimer')
       },
@@ -284,18 +234,6 @@ export default {
     sendMessage() {
       let next = this.textTicker.splice(0, 1)
       this.showTextTicker.unshift(...next)
-    },
-    onClickPenalty(value) {
-      this.openPenalty = value
-      this.showPenalty = false
-    },
-    onClickCorner(value) {
-      this.openCorner = value
-      this.showCorner = false
-    },
-    changeVisability() {
-      this.openBet = false
-      this.showBet = false
     },
 
     teamGoals(goals, teamname) {

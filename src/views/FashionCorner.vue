@@ -5,11 +5,33 @@
         v-for="(player, index) in players"
         :key="index"
         class="my-1 px-1 w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
-        @click="showPlayerDetail(index)"
       >
-        <img class="w-full" :src="player.foto" alt="image" />
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">{{ player.name }}</div>
+        <img
+          class="w-full"
+          :src="player.foto"
+          alt="image"
+          @click="showPlayerDetail(index)"
+        />
+        <div class="flex content-between flex-wrap">
+          <div class="font-bold ml-1">{{ player.name }}</div>
+          <div class="mx-12"></div>
+          <div @click="changeColor(index)">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              height="55"
+              width="55"
+            >
+              <polygon
+                :style="[
+                  favorite[index]
+                    ? { fill: activeColor }
+                    : { fill: inactiveColor },
+                ]"
+                points="20 18 25 30 40 30 30 40 35 50 20 45 5 50 10 40 0 30 15 30"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -53,12 +75,29 @@ export default {
       players: playerList.players,
       exampleModalShowing: false,
       content: {},
+      favorite: [],
+      activeColor: '#0f0',
+      inactiveColor: '#00f',
     }
+  },
+  created() {
+    this.players.forEach(() => this.favorite.push(false))
   },
   methods: {
     showPlayerDetail: function(index) {
       this.content = playerData.allPlayers[index].content
       this.exampleModalShowing = true
+    },
+    changeColor: function(index) {
+      this.favorite[index] = !this.favorite[index]
+      let temp = this.activeColor
+      this.activeColor = this.inactiveColor
+      this.inactiveColor = temp
+      temp = ''
+      temp = this.activeColor
+      this.activeColor = this.inactiveColor
+      this.inactiveColor = temp
+      temp = ''
     },
   },
 }

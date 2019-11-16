@@ -7,6 +7,7 @@ export default {
   mutations: {
     INCREMENT_TIMER(state, seconds) {
       state.timer += seconds
+      if (state.timer < 0) state.timer = 0
     },
 
     SET_INTERVAL(state, interval) {
