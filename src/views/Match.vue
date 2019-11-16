@@ -1,13 +1,19 @@
 <template>
   <div class="pt-64">
     <div
-      class="z-10 fixed top-0 left-0 right-0 mt-2 mx-2 flex justify-between opacity-25"
+      class="z-10 fixed top-0 left-0 right-0 mt-2 mx-2 flex justify-end opacity-25"
     >
       <button
-        class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
-        @click="sendMessage"
+        class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
+        @click="incrementTimer(-5 * 60)"
       >
-        Liveticker
+        -5
+      </button>
+      <button
+        class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
+        @click="incrementTimer(5 * 60)"
+      >
+        +5
       </button>
       <button
         class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
@@ -24,9 +30,17 @@
           backgroundImage: 'url(/images/stadium.png)',
         }"
       >
-        <h2 class="text-6xl tracking-wide">
+        <h2 v-if="minutes < 90" class="text-6xl tracking-wide">
           {{ minutes | twoCharClock }}:{{ extraSeconds | twoCharClock }}
         </h2>
+        <h2 v-if="minutes >= 90" class="text-5xl tracking-wide">
+          90:00
+        </h2>
+        <h3 v-if="minutes >= 90" class="-mt-1 text-lg">
+          + {{ (minutes - 90) | twoCharClock }}:{{
+            extraSeconds | twoCharClock
+          }}
+        </h3>
       </div>
 
       <div
@@ -198,7 +212,7 @@ export default {
       showCorner: true,
       interval: null,
       running: false,
-      seconds: 0,
+      seconds: 5463,
       open: false,
       goals: [
         { minute: 7, team: 'home', name: 'Guillaume Hoarau' },
@@ -293,6 +307,7 @@ export default {
     },
     incrementTimer(seconds) {
       this.seconds += seconds
+      if (this.seconds < 0) this.seconds = 0
     },
     startOrStopInterval(running) {
       if (running) {
