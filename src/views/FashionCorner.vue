@@ -36,23 +36,43 @@
     </div>
     <!--Modal-->
     <Modal :showing="exampleModalShowing" @close="exampleModalShowing = false">
-      <h2 class="text-xl font-bold text-gray-900">{{ content.name }}</h2>
-      <div class="flex flex-wrap -mx-1">
-        <img class="w-1/4 h-full" :src="content.bild" alt="Foto" />
-        <ul
-          class="list-none sm:list-disc md:list-decimal lg:list-disc xl:list-none"
-        >
-          <li>Geburtstag: {{ content.geburtsTag }}</li>
-          <li>Grösse: {{ content.groesse }}</li>
-          <li>Position: {{ content.position }}</li>
-          <li>Trikotnummer: {{ content.trikot }}</li>
-          <li>Sponsor: {{ content.sponsor }}</li>
-          <li>Motto: {{ content.motto }}</li>
-        </ul>
-        <div class="flex flex-wrap -mx-1">
-          <img class="w-1/3 h-full" :src="content.trikotPic" alt="Auto" />
-          <img class="w-1/3 h-full" :src="content.auto" alt="Schuhe" />
-          <img class="w-1/3 h-full" :src="content.schuhe" alt="Trikot" />
+      <h2 class="text-xl font-medium text-gray-900 tracking-wide">
+        {{ content.name }}
+      </h2>
+      <div class="mt-2 flex flex-wrap items-start">
+        <img class="w-1/4 pt-1 pr-4" :src="content.bild" alt="Foto" />
+        <div class="w-3/4">
+          <div class="">
+            <span class="text-sm text-gray-700 leading-tight">Geburtstag:</span>
+            {{ content.geburtsTag }}
+          </div>
+          <div class="">
+            <span class="text-sm text-gray-700 leading-tight">Grösse:</span>
+            {{ content.groesse }}
+          </div>
+          <div class="">
+            <span class="text-sm text-gray-700 leading-tight">Position:</span>
+            {{ content.position }}
+          </div>
+          <div class="">
+            <span class="text-sm text-gray-700 leading-tight">
+              Trikotnummer:
+            </span>
+            {{ content.trikot }}
+          </div>
+          <div class="">
+            <span class="text-sm text-gray-700 leading-tight">Sponsor:</span>
+            {{ content.sponsor }}
+          </div>
+          <div class="">
+            <span class="text-sm text-gray-700 leading-tight">Motto:</span>
+            {{ content.motto }}
+          </div>
+        </div>
+        <div class="mt-3 -mx-1 flex flex-wrap items-start">
+          <img class="w-1/3 pr-1" :src="content.trikotPic" alt="Auto" />
+          <img class="w-1/3 pr-1" :src="content.auto" alt="Schuhe" />
+          <img class="w-1/3" :src="content.schuhe" alt="Trikot" />
         </div>
       </div>
     </Modal>
