@@ -12,15 +12,14 @@
           alt="image"
           @click="showPlayerDetail(index)"
         />
-        <div class="flex content-between flex-wrap">
+        <div class="flex flex-col">
           <div class="font-bold ml-1">{{ player.name }}</div>
-          <div class="mx-12"></div>
-          <div @click="changeColor(index)">
+          <div class="self-center" @click="changeColor(index)">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
-              height="55"
-              width="55"
+              height="32"
+              width="40"
             >
               <polygon
                 :style="[
@@ -28,7 +27,7 @@
                     ? { fill: activeColor }
                     : { fill: inactiveColor },
                 ]"
-                points="20 18 25 30 40 30 30 40 35 50 20 45 5 50 10 40 0 30 15 30"
+                points="20 0 25 12 40 12 30 22 35 32 20 27 5 32 10 22 0 12 15 12"
               />
             </svg>
           </div>
@@ -76,8 +75,8 @@ export default {
       exampleModalShowing: false,
       content: {},
       favorite: [],
-      activeColor: '#0f0',
-      inactiveColor: '#00f',
+      activeColor: '#ffcf00',
+      inactiveColor: '#000',
     }
   },
   created() {
