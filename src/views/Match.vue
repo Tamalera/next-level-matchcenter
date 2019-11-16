@@ -147,7 +147,7 @@ export default {
           points: 1,
           title: 'Ein Eckstoss für YB. Wer wird den Ball als erster berühren?',
           text:
-            'Versuche deine Erfahrung und dein Glück und gewinne einen Punkt.',
+            'Versuche dein Glück und gewinne einen Punkt.',
         },
         {
           id: 3,
@@ -163,16 +163,16 @@ export default {
           betType: 'penalty',
           minute: 71,
           points: 2,
-          title: 'Wo wird der Penaltyschütze den Ball ins Tor schiessen?',
-          text: 'Gewinne zwei Punkte in dem du richtig ratest.',
+          title: 'Wohin wird der Penaltyschütze den Ball ins Tor schiessen?',
+          text: 'Gewinne zwei Punkte indem du richtig rätst.',
         },
         {
           id: 5,
           type: 'info',
           minute: 73,
-          title: 'Wölfli hält Penalty',
+          title: 'Wölfli hält den Penalty',
           text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+            'Unten links geraten, Hechtsprung und Ball sicher gefangen - ein Krimi!',
         },
         {
           id: 6,
@@ -180,7 +180,7 @@ export default {
           minute: 74,
           title: 'Hoarau verletzt',
           text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+            'Nach Zusammenstoss mit Kaiser, verlässt Hoarau hinkend das Spielfeld.',
         },
         {
           id: 7,
@@ -188,7 +188,7 @@ export default {
           minute: 76,
           title: 'Ein wunderschöner Angriff',
           text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+            'Roger Assalé trippelt an zwei Gegnern vorbei und prescht in Richtung Strafraum.',
         },
       ],
     }
