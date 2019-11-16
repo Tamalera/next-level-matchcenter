@@ -5,9 +5,9 @@
     </div>
 
     <div class="fixed bottom-0 w-full flex flex-between bg-yellow-500">
-      <div class="w-5/12 py-4 text-center font-medium">
+      <router-link to="/user" class="w-5/12 py-4 text-center font-medium">
         Benutzer
-      </div>
+      </router-link>
       <div class="w-1/6 relative">
         <router-link
           to="/"

@@ -4,6 +4,7 @@ import HomeSpecial from '../views/HomeSpecial.vue'
 import FashionCorner from '../views/FashionCorner.vue'
 import Bet from '../views/Bet.vue'
 import Match from '../views/Match.vue'
+import User from '../views/User.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/bet',
     name: 'bet',
     component: Bet,
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: User,
   },
 ]
 
