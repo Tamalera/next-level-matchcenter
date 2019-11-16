@@ -5,7 +5,7 @@
         v-for="(player, index) in players"
         :key="index"
         class="my-1 px-1 w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
-        @click="rightPlayer(index)"
+        @click="rightPlayer(index, 'clicked')"
       >
         <img class="w-full" :src="player.foto" alt="image" />
         <div class="px-6 py-4">
@@ -42,17 +42,17 @@ export default {
     }
   },
   methods: {
-    rightPlayer: function(index) {
+    rightPlayer: function(index, event) {
       this.content = playerData.allPlayers[index].content
       this.exampleModalShowing = true
       if (index == 3) {
-        this.message = 'Gratulation, du hesch dr richtig Spiler gwäuut!!'
+        this.message = 'Gratulation, du hast die richtige Person gewählt!!'
       } else {
-        this.message = 'Schad, ni ganz richtig'
+        this.message = 'Schade, nicht ganz korrekt'
       }
       setTimeout(() => {
         this.exampleModalShowing = false
-        this.$router.push('/')
+        this.$emit(event, false)
       }, 4000)
     },
   },

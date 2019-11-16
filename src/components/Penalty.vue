@@ -1,15 +1,15 @@
 <template>
   <div class="relative h-full">
-    <div class="absolute w-full">
+    <div class="w-full">
       <img src="../assets/fussball_tor.svg" alt="Fussball Tor" class="w-full" />
     </div>
-    <div class="absolute w-full abstand-oben">
+    <div class="absolute top-0 w-full abstand-oben">
       <div class="flex flex-wrap justify-content abstand-rand">
         <div
           v-for="(n, index) in 6"
           :key="index"
           class="w-1/5 abstand-ball"
-          @click="showPlayerDetail(index)"
+          @click="showPlayerDetail(index, 'clicked')"
         >
           <img src="../assets/fussball.svg" alt="Fussball" class="mx-auto" />
         </div>
@@ -29,7 +29,7 @@
 
 <style scoped lang="scss">
 .abstand-oben {
-  margin-top: 5rem;
+  margin-top: 3.5rem;
   @media only screen and (min-width: 450px) {
     margin-top: 7rem;
   }
@@ -99,17 +99,17 @@ export default {
     }
   },
   methods: {
-    showPlayerDetail: function(index) {
+    showPlayerDetail: function(index, event) {
       this.exampleModalShowing = true
       this.indexCorner += index
       if (index == 3) {
-        this.message = 'Gratulation, du hesch dr richtig Ort gwäuut!!'
+        this.message = 'Gratulation, du hast der richtige Ort gewählt!!'
       } else {
-        this.message = 'Schad, ni ganz richtig'
+        this.message = 'Schade, nicht ganz korrekt'
       }
       setTimeout(() => {
         this.exampleModalShowing = false
-        this.$router.push('/')
+        this.$emit(event, false)
       }, 4000)
     },
   },

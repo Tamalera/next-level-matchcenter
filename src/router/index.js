@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeSpecial from '../views/HomeSpecial.vue'
-import MiniGames from '../views/MiniGames.vue'
 import FashionCorner from '../views/FashionCorner.vue'
 import Bet from '../views/Bet.vue'
 import Match from '../views/Match.vue'
@@ -23,11 +22,6 @@ const routes = [
     path: '/homespecial',
     name: 'homespecial',
     component: HomeSpecial,
-  },
-  {
-    path: '/mini-games',
-    name: 'miniGames',
-    component: MiniGames,
   },
   {
     path: '/bet',
