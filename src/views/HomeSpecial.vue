@@ -58,12 +58,14 @@
         </div>
         <br />
         <div class="items-center">
-          <button
-            class="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Absenden
-          </button>
+          <router-link to="/">
+            <button
+              class="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Absenden
+            </button>
+          </router-link>
         </div>
       </form>
     </div>
