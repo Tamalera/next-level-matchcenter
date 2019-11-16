@@ -1,31 +1,16 @@
 <template>
   <div class="pt-64 pb-16">
-<<<<<<< HEAD
-    <div class="z-10 fixed top-0 left-0 mt-2 ml-2 opacity-25 hover:opacity-100">
-  <div class="pt-64">
-=======
->>>>>>> 64897cab258c176f36be10e182860c4f988006ef
     <div
       class="z-10 fixed top-0 left-0 right-0 mt-2 mx-2 flex justify-end opacity-25"
     >
       <button
         class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="incrementTimer(-5 * 60)"
-<<<<<<< HEAD
-      >
-      </button>
-      <button
-        class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
-        @click="incrementTimer(5 * 60)"
-      >
-      </button>
-=======
       ></button>
       <button
         class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="incrementTimer(5 * 60)"
       ></button>
->>>>>>> 64897cab258c176f36be10e182860c4f988006ef
       <button
         class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="running = !running"
