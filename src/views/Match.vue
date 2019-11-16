@@ -25,7 +25,7 @@
 
     <div class="fixed z-10 top-0 w-full">
       <div
-        class="pt-8 pb-16 flex flex-col items-center bg-no-repeat bg-center bg-cover shadow-inner "
+        class="box-shadow-fade pt-8 pb-16 flex flex-col items-center bg-no-repeat bg-center bg-cover shadow-inner "
         :style="{
           backgroundImage: 'url(/images/stadium.png)',
         }"
@@ -126,7 +126,7 @@ export default {
       goals: [
         { minute: 7, team: 'home', name: 'Guillaume Hoarau' },
         { minute: 9, team: 'home', name: 'Guillaume Hoarau' },
-        { minute: 22, team: 'away', name: 'Alexander Frei' },
+        { minute: 22, team: 'away', name: 'Valentin Stocker' },
         { minute: 52, team: 'home', name: 'Kevin Mbabu' },
       ],
       tickerEvents: [
@@ -146,16 +146,14 @@ export default {
           minute: 68,
           points: 1,
           title: 'Ein Eckstoss für YB. Wer wird den Ball als erster berühren?',
-          text:
-            'Versuche deine Erfahrung und dein Glück und gewinne einen Punkt.',
+          text: 'Versuche dein Glück und gewinne einen Punkt.',
         },
         {
           id: 3,
           type: 'info',
           minute: 71,
           title: 'Penalty gegen YB',
-          text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+          text: 'Nach Foul an Ademi gibt es einen Penalty.',
         },
         {
           id: 4,
@@ -163,32 +161,32 @@ export default {
           betType: 'penalty',
           minute: 71,
           points: 2,
-          title: 'Wo wird der Penaltyschütze den Ball ins Tor schiessen?',
-          text: 'Gewinne zwei Punkte in dem du richtig ratest.',
+          title: 'Wohin wird der Penaltyschütze den Ball ins Tor schiessen?',
+          text: 'Gewinne zwei Punkte indem du richtig rätst.',
         },
         {
           id: 5,
           type: 'info',
-          minute: 72,
-          title: 'Wölfli hält Penalty',
+          minute: 73,
+          title: 'Wölfli hält den Penalty',
           text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+            'Unten links geraten, Hechtsprung und Ball sicher gefangen - ein Krimi!',
         },
         {
           id: 6,
           type: 'info',
-          minute: 73,
+          minute: 74,
           title: 'Hoarau verletzt',
           text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+            'Nach Zusammenstoss mit Kaiser, verlässt Hoarau hinkend das Spielfeld.',
         },
         {
           id: 7,
           type: 'info',
-          minute: 75,
+          minute: 76,
           title: 'Ein wunderschöner Angriff',
           text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+            'Roger Assalé trippelt an zwei Gegnern vorbei und prescht in Richtung Strafraum.',
         },
       ],
     }
@@ -243,4 +241,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.box-shadow-fade {
+  box-shadow: 0 -10px 50px 60px #fff;
+}
+</style>

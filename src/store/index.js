@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import moduleSocket from './socket'
 import moduleBets from './bets'
 import moduleMatch from './match'
+import moduleFashionCorner from './fashionCorner'
 
 Vue.use(Vuex)
 
@@ -16,6 +17,10 @@ export default new Vuex.Store({
     match: {
       namespaced: true,
       ...moduleMatch,
+    },
+    fashionCorner: {
+      namespaced: true,
+      ...moduleFashionCorner,
     },
   },
 })

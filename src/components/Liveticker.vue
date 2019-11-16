@@ -71,6 +71,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import Bet from '@/components/Bet'
 import Corner from '@/components/Corner'
 import Penalty from '@/components/Penalty'
@@ -92,11 +94,12 @@ export default {
   data() {
     return {
       open: null,
-      hiddenEventIds: [],
     }
   },
 
   computed: {
+    ...mapState('match', ['hiddenEventIds']),
+
     filteredEvents() {
       return this.events.filter(e => !this.hiddenEventIds.includes(e.id))
     },

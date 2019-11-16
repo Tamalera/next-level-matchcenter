@@ -12,23 +12,22 @@
           alt="image"
           @click="showPlayerDetail(index)"
         />
-        <div class="flex content-between flex-wrap">
+        <div class="flex flex-col">
           <div class="font-bold ml-1">{{ player.name }}</div>
-          <div class="mx-12"></div>
-          <div @click="changeColor(index)">
+          <div class="self-center" @click="changeColor(index)">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
-              height="55"
-              width="55"
+              height="32"
+              width="40"
             >
               <polygon
                 :style="[
-                  favorite[index]
+                  favorites[index]
                     ? { fill: activeColor }
                     : { fill: inactiveColor },
                 ]"
-                points="20 18 25 30 40 30 30 40 35 50 20 45 5 50 10 40 0 30 15 30"
+                points="20 0 25 12 40 12 30 22 35 32 20 27 5 32 10 22 0 12 15 12"
               />
             </svg>
           </div>
@@ -75,21 +74,32 @@ export default {
       players: playerList.players,
       exampleModalShowing: false,
       content: {},
-      favorite: [],
-      activeColor: '#0f0',
-      inactiveColor: '#00f',
+      activeColor: '#ffcf00',
+      inactiveColor: '#000',
     }
   },
-  created() {
-    this.players.forEach(() => this.favorite.push(false))
+
+  computed: {
+    favorites() {
+      return this.$store.state.fashionCorner.favorites
+    },
   },
+
+  created() {
+    this.players.forEach(() => this.favorites.push(false))
+  },
+
   methods: {
     showPlayerDetail: function(index) {
       this.content = playerData.allPlayers[index].content
       this.exampleModalShowing = true
     },
     changeColor: function(index) {
-      this.favorite[index] = !this.favorite[index]
+      this.favorites[index] = !this.favorites[index]
+      if (this.favorites[index])
+        this.$store.commit('fashionCorner/ADD_FAVORITE', index)
+      else this.$store.commit('fashionCorner/REMOVE_FAVORITE', index)
+
       let temp = this.activeColor
       this.activeColor = this.inactiveColor
       this.inactiveColor = temp
