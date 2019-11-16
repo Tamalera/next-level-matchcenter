@@ -33,7 +33,7 @@
               {{ event.title }}
             </h3>
             <div class="flex-shrink-0 ml-4 text-sm font-medium text-gray-700">
-              {{ event.points }} Punkte
+              {{ event.points }} MOHF Taler
             </div>
           </div>
           <p class="mt-1 text-gray-700">
@@ -55,7 +55,7 @@
               {{ event.title }}
             </h3>
             <div class="flex-shrink-0 ml-4 text-sm font-medium text-gray-700">
-              {{ event.points }} Punkte
+              {{ event.points }} MOHF Taler
             </div>
           </div>
           <p class="mt-1 text-gray-700">
