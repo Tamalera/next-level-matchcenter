@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-12 mx-auto px-4 md:px-12">
+  <div class="container mt-4 mx-auto px-4 md:px-12">
     <div class="flex flex-wrap -mx-1 lg:-mx-4">
       <div
         v-for="(player, index) in players"
