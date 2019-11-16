@@ -5,8 +5,11 @@
     </div>
 
     <div class="fixed bottom-0 w-full flex flex-between bg-yellow-500">
-      <router-link to="/bet" class="w-5/12 py-4 text-center font-medium">
-        Wetten & Gewinnen
+      <router-link
+        to="/homespecial"
+        class="w-5/12 py-4 text-center font-medium"
+      >
+        Homespecial
       </router-link>
       <div class="w-1/6 relative">
         <router-link

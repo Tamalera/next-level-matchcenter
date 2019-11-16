@@ -222,6 +222,12 @@ export default {
       ],
       tickerEvents: [
         {
+          titel: 'Eckstoss gegen YB',
+          minute: 55,
+          text:
+            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+        },
+        {
           titel: 'Penalty gegen YB',
           minute: 71,
           text:
