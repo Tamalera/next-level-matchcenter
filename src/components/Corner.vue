@@ -41,6 +41,7 @@ export default {
       message: '',
     }
   },
+
   methods: {
     rightPlayer: function(index, event) {
       this.content = playerData.allPlayers[index].content
@@ -53,7 +54,7 @@ export default {
       setTimeout(() => {
         this.exampleModalShowing = false
         this.$emit(event, false)
-      }, 4000)
+      }, 2500)
     },
   },
 }
