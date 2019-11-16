@@ -18,7 +18,7 @@
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
-              class="fill-current w-6"
+              class="transition fill-current w-6"
               :class="{
                 'text-black': !favorites.includes(index),
                 'text-yellow-500': favorites.includes(index),
