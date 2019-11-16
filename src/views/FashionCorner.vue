@@ -74,14 +74,21 @@ export default {
       players: playerList.players,
       exampleModalShowing: false,
       content: {},
-      favorite: [],
       activeColor: '#ffcf00',
       inactiveColor: '#000',
     }
   },
+
+  computed: {
+    favorite() {
+      return this.$store.state.fashionCorner.favorites
+    },
+  },
+
   created() {
     this.players.forEach(() => this.favorite.push(false))
   },
+
   methods: {
     showPlayerDetail: function(index) {
       this.content = playerData.allPlayers[index].content
@@ -89,6 +96,10 @@ export default {
     },
     changeColor: function(index) {
       this.favorite[index] = !this.favorite[index]
+      if (this.favorite[index])
+        this.$store.commit('fashionCorner/ADD_FAVORITE', index)
+      else this.$store.commit('fashionCorner/REMOVE_FAVORITE', index)
+
       let temp = this.activeColor
       this.activeColor = this.inactiveColor
       this.inactiveColor = temp
