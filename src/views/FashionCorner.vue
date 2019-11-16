@@ -1,10 +1,10 @@
 <template>
-  <div class="container my-12 mx-auto px-4 md:px-12 pb-16">
-    <div class="flex flex-wrap -mx-1 lg:-mx-4">
+  <div class="container mt-8 mb-16 mx-auto px-4">
+    <div class="w-full flex flex-wrap justify-around">
       <div
         v-for="(player, index) in players"
         :key="index"
-        class="my-1 px-1 w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
+        class="mb-6 w-5/12 lg:mb-8 lg:px-4 lg:w-1/3 rounded-lg shadow-lg overflow-hidden"
       >
         <img
           class="w-full"
@@ -12,22 +12,20 @@
           alt="image"
           @click="showPlayerDetail(index)"
         />
-        <div class="flex flex-col">
+        <div class="flex justify-between py-2 px-3">
           <div class="font-bold ml-1">{{ player.name }}</div>
-          <div class="self-center" @click="changeColor(index)">
+          <div class="mt-1 ml-2 mr-1" @click="changeColor(index)">
             <svg
-              version="1.1"
               xmlns="http://www.w3.org/2000/svg"
-              height="32"
-              width="40"
+              viewBox="0 0 576 512"
+              class="fill-current w-6"
+              :class="{
+                'text-black': !favorites.includes(index),
+                'text-yellow-500': favorites.includes(index),
+              }"
             >
-              <polygon
-                :style="[
-                  favorites[index]
-                    ? { fill: activeColor }
-                    : { fill: inactiveColor },
-                ]"
-                points="20 0 25 12 40 12 30 22 35 32 20 27 5 32 10 22 0 12 15 12"
+              <path
+                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
               />
             </svg>
           </div>
@@ -89,13 +87,11 @@ export default {
   components: {
     Modal,
   },
-  data: function() {
+  data() {
     return {
       players: playerList.players,
       exampleModalShowing: false,
       content: {},
-      activeColor: '#ffcf00',
-      inactiveColor: '#000',
     }
   },
 
@@ -119,15 +115,6 @@ export default {
       if (this.favorites[index])
         this.$store.commit('fashionCorner/ADD_FAVORITE', index)
       else this.$store.commit('fashionCorner/REMOVE_FAVORITE', index)
-
-      let temp = this.activeColor
-      this.activeColor = this.inactiveColor
-      this.inactiveColor = temp
-      temp = ''
-      temp = this.activeColor
-      this.activeColor = this.inactiveColor
-      this.inactiveColor = temp
-      temp = ''
     },
   },
 }
