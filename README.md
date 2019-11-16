@@ -1,5 +1,5 @@
 # yellow-bears-ui
-YB Hackathon 2019 Challenge 4 - Next Level YB Matchcenter
+YB Hackathon 2019 Challenge 4 - Next Level YB MatchCenter
 
 ## Project setup
 ```
