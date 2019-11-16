@@ -23,7 +23,7 @@
             >
               <polygon
                 :style="[
-                  favorite[index]
+                  favorites[index]
                     ? { fill: activeColor }
                     : { fill: inactiveColor },
                 ]"
@@ -80,13 +80,13 @@ export default {
   },
 
   computed: {
-    favorite() {
+    favorites() {
       return this.$store.state.fashionCorner.favorites
     },
   },
 
   created() {
-    this.players.forEach(() => this.favorite.push(false))
+    this.players.forEach(() => this.favorites.push(false))
   },
 
   methods: {
@@ -95,8 +95,8 @@ export default {
       this.exampleModalShowing = true
     },
     changeColor: function(index) {
-      this.favorite[index] = !this.favorite[index]
-      if (this.favorite[index])
+      this.favorites[index] = !this.favorites[index]
+      if (this.favorites[index])
         this.$store.commit('fashionCorner/ADD_FAVORITE', index)
       else this.$store.commit('fashionCorner/REMOVE_FAVORITE', index)
 
