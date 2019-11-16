@@ -9,7 +9,7 @@ export default {
     },
 
     REMOVE_FAVORITE(state, id) {
-      state.favorites.splice(id, 1)
+      state.favorites.splice(state.favorites.indexOf(id), 1)
     },
   },
 
