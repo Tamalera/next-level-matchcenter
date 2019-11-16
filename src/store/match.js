@@ -2,6 +2,7 @@ export default {
   state: {
     timer: 0,
     interval: null,
+    hiddenEventIds: [],
   },
 
   mutations: {
