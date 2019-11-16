@@ -126,7 +126,7 @@ export default {
       goals: [
         { minute: 7, team: 'home', name: 'Guillaume Hoarau' },
         { minute: 9, team: 'home', name: 'Guillaume Hoarau' },
-        { minute: 22, team: 'away', name: 'Alexander Frei' },
+        { minute: 22, team: 'away', name: 'Valentin Stocker' },
         { minute: 52, team: 'home', name: 'Kevin Mbabu' },
       ],
       tickerEvents: [
@@ -146,8 +146,7 @@ export default {
           minute: 68,
           points: 1,
           title: 'Ein Eckstoss für YB. Wer wird den Ball als erster berühren?',
-          text:
-            'Versuche dein Glück und gewinne einen Punkt.',
+          text: 'Versuche dein Glück und gewinne einen Punkt.',
         },
         {
           id: 3,
