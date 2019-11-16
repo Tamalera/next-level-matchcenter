@@ -143,7 +143,7 @@ export default {
           id: 2,
           type: 'bet',
           betType: 'corner',
-          minute: 68,
+          minute: 41,
           points: 1,
           title: 'Ein Eckstoss für YB. Wer wird den Ball als erster berühren?',
           text: 'Versuche dein Glück und gewinne einen Punkt.',
@@ -151,7 +151,7 @@ export default {
         {
           id: 3,
           type: 'info',
-          minute: 71,
+          minute: 68,
           title: 'Penalty gegen YB',
           text: 'Nach Foul an Ademi gibt es einen Penalty.',
         },
@@ -159,7 +159,7 @@ export default {
           id: 4,
           type: 'bet',
           betType: 'penalty',
-          minute: 71,
+          minute: 68,
           points: 2,
           title: 'Wohin wird der Penaltyschütze den Ball ins Tor schiessen?',
           text: 'Gewinne zwei Punkte indem du richtig rätst.',
@@ -167,7 +167,7 @@ export default {
         {
           id: 5,
           type: 'info',
-          minute: 73,
+          minute: 70,
           title: 'Wölfli hält den Penalty',
           text:
             'Unten links geraten, Hechtsprung und Ball sicher gefangen - ein Krimi!',
@@ -175,7 +175,7 @@ export default {
         {
           id: 6,
           type: 'info',
-          minute: 74,
+          minute: 84,
           title: 'Hoarau verletzt',
           text:
             'Nach Zusammenstoss mit Kaiser, verlässt Hoarau hinkend das Spielfeld.',
@@ -183,7 +183,7 @@ export default {
         {
           id: 7,
           type: 'info',
-          minute: 76,
+          minute: 79,
           title: 'Ein wunderschöner Angriff',
           text:
             'Roger Assalé trippelt an zwei Gegnern vorbei und prescht in Richtung Strafraum.',
