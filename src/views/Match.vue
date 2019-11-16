@@ -209,8 +209,6 @@ export default {
       showPenalty: true,
       showBet: true,
       showCorner: true,
-      interval: null,
-      running: false,
       open: false,
       goals: [
         { minute: 7, team: 'home', name: 'Guillaume Hoarau' },
@@ -269,16 +267,17 @@ export default {
           return 0
         })
     },
-  },
 
-  watch: {
-    running(running) {
-      this.startOrStopInterval(running)
+    running: {
+      get() {
+        return !!this.$store.state.match.interval
+      },
+      set(val) {
+        console.log(val)
+        if (val) this.$store.dispatch('match/startTimer')
+        else this.$store.dispatch('match/stopTimer')
+      },
     },
-  },
-
-  mounted() {
-    this.startOrStopInterval(this.running)
   },
 
   methods: {
@@ -297,14 +296,6 @@ export default {
     changeVisability() {
       this.openBet = false
       this.showBet = false
-    },
-
-    startOrStopInterval(running) {
-      if (running) {
-        this.$store.dispatch('match/startTimer')
-      } else {
-        this.$store.dispatch('match/stopTimer')
-      }
     },
 
     teamGoals(goals, teamname) {
