@@ -29,7 +29,9 @@
                 >
                   Vorname:
                 </th>
-                <td class="w-1/2 px-3 py-1 leading-tight">Sebastian</td>
+                <td class="w-1/2 px-3 py-1 leading-tight">
+                  Sebastian
+                </td>
               </tr>
               <tr class="content-center">
                 <th
@@ -37,7 +39,9 @@
                 >
                   Nachname:
                 </th>
-                <td class="w-1/2 px-3 py-1 leading-tight">Helbig</td>
+                <td class="w-1/2 px-3 py-1 leading-tight">
+                  Helbig
+                </td>
               </tr>
               <tr class="content-center">
                 <th
@@ -55,7 +59,7 @@
             <div class="progress-bar mt-2 mx-auto">
               <span class="progress-bar-fill" style="width: 70%;"></span>
             </div>
-            <p class="mt-3 text-center text-l">
+            <p class="mt-3 text-center text-l text-gray-700">
               Dir fehlen noch 30 MOHF Taler bis zur Überraschung
             </p>
           </div>
