@@ -28,15 +28,6 @@ export default {
       type: Boolean,
     },
   },
-  watch: {
-    showing(value) {
-      if (value) {
-        return document.querySelector('body').classList.add('overflow-hidden')
-      }
-
-      document.querySelector('body').classList.remove('overflow-hidden')
-    },
-  },
   methods: {
     close() {
       this.$emit('close')

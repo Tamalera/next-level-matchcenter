@@ -27,6 +27,39 @@
   </div>
 </template>
 
+<script>
+import ModalWoBu from '@/components/ModalWoBu.vue'
+
+export default {
+  name: 'FashionCorner',
+  components: {
+    ModalWoBu,
+  },
+  data: function() {
+    return {
+      exampleModalShowing: false,
+      message: '',
+      indexCorner: 0,
+    }
+  },
+  methods: {
+    showPlayerDetail: function(index, event) {
+      this.exampleModalShowing = true
+      this.indexCorner += index
+      if (index == 3) {
+        this.message = 'Gratulation, du hast der richtige Ort gewählt!!'
+      } else {
+        this.message = 'Schade, nicht ganz korrekt'
+      }
+      setTimeout(() => {
+        this.exampleModalShowing = false
+        this.$emit(event, false)
+      }, 2500)
+    },
+  },
+}
+</script>
+
 <style scoped lang="scss">
 .abstand-oben {
   margin-top: 3.5rem;
@@ -82,36 +115,3 @@
   }
 }
 </style>
-
-<script>
-import ModalWoBu from '@/components/ModalWoBu.vue'
-
-export default {
-  name: 'FashionCorner',
-  components: {
-    ModalWoBu,
-  },
-  data: function() {
-    return {
-      exampleModalShowing: false,
-      message: '',
-      indexCorner: 0,
-    }
-  },
-  methods: {
-    showPlayerDetail: function(index, event) {
-      this.exampleModalShowing = true
-      this.indexCorner += index
-      if (index == 3) {
-        this.message = 'Gratulation, du hast der richtige Ort gewählt!!'
-      } else {
-        this.message = 'Schade, nicht ganz korrekt'
-      }
-      setTimeout(() => {
-        this.exampleModalShowing = false
-        this.$emit(event, false)
-      }, 4000)
-    },
-  },
-}
-</script>
