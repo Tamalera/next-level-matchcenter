@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-64">
+  <div class="pt-64 pb-16">
     <div
       class="z-10 fixed top-0 left-0 right-0 mt-2 mx-2 flex justify-end opacity-25"
     >
