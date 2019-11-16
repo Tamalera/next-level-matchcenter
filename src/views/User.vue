@@ -1,12 +1,14 @@
 <template>
   <div class="user w-full">
     <div
-      class="h-screen pt-8 flex flex-col items-center bg-no-repeat bg-center bg-cover shadow-inner"
+      class="h-screen pt-8 flex flex-col justify-center items-center bg-no-repeat bg-center bg-cover shadow-inner"
       :style="{
         backgroundImage: 'url(/images/stadion.jpg)',
       }"
     >
-      <div class="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div
+        class="-mt-16 flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
         <div class="content-center">
           <div class="content-center userheader">
             <img
@@ -20,30 +22,40 @@
           <br />
           <div class="content-center userinfo">
             <h3 class="text-center text-xl">Benutzerinformationen</h3>
-            <table class="table-fixed content-center w-full">
+            <table class="table-fixed content-center w-full mt-2">
               <tr class="content-center">
-                <th class="w-1/2 px-4 py-2 text-right">Vorname:</th>
-                <td class="w-1/2 px-4 py-2">Sebastian</td>
+                <th
+                  class="w-1/2 px-3 py-1 leading-tight text-gray-700 font-normal text-right"
+                >
+                  Vorname:
+                </th>
+                <td class="w-1/2 px-3 py-1 leading-tight">Sebastian</td>
               </tr>
               <tr class="content-center">
-                <th class="w-1/2 px-4 py-2 text-right">Nachname:</th>
-                <td class="w-1/2 px-4 py-2">Helbig</td>
+                <th
+                  class="w-1/2 px-3 py-1 leading-tight text-gray-700 font-normal text-right"
+                >
+                  Nachname:
+                </th>
+                <td class="w-1/2 px-3 py-1 leading-tight">Helbig</td>
               </tr>
               <tr class="content-center">
-                <th class="w-1/2 px-4 py-2 text-right">Alter:</th>
-                <td class="w-1/2 px-4 py-2">26</td>
+                <th
+                  class="w-1/2 px-3 py-1 leading-tight text-gray-700 font-normal text-right"
+                >
+                  Alter:
+                </th>
+                <td class="w-1/2 px-3 py-1 leading-tight">26</td>
               </tr>
             </table>
           </div>
-          <br />
-          <div class="wrapper mx-auto">
+
+          <div class="wrapper mt-6 mx-auto">
             <h3 class="text-center text-xl">Deine MOHF Taler</h3>
-            <br />
-            <div class="progress-bar mx-auto">
+            <div class="progress-bar mt-2 mx-auto">
               <span class="progress-bar-fill" style="width: 70%;"></span>
             </div>
-            <br />
-            <p class="text-center text-l">
+            <p class="mt-3 text-center text-l">
               Dir fehlen noch 30 MOHF Taler bis zur Überraschung
             </p>
           </div>
