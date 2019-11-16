@@ -6,15 +6,11 @@
       <button
         class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="incrementTimer(-5 * 60)"
-      >
-        -5
-      </button>
+      ></button>
       <button
         class="mr-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="incrementTimer(5 * 60)"
-      >
-        +5
-      </button>
+      ></button>
       <button
         class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 focus:outline-none"
         @click="running = !running"
@@ -177,7 +173,6 @@
           <Corner @clicked="onClickCorner" />
         </div>
       </div>
-
       <Liveticker :ticker="filteredTickerEvents" />
     </div>
   </div>
@@ -221,12 +216,6 @@ export default {
         { minute: 52, team: 'home', name: 'Kevin Mbabu' },
       ],
       tickerEvents: [
-        {
-          titel: 'Eckstoss gegen YB',
-          minute: 55,
-          text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
-        },
         {
           titel: 'Penalty gegen YB',
           minute: 71,
