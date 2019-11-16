@@ -3,14 +3,14 @@
     <div class="cursor-pointer" @click="$emit('click')">
       <div class="flex justify-between">
         <h3 class="font-medium">
-          Wie wird dieses Spiel ausgehen?
+          {{ event.title }}
         </h3>
         <div class="flex-shrink-0 ml-4 text-sm font-medium text-gray-700">
-          3 Punkte
+          {{ event.points }} Punkte
         </div>
       </div>
       <p class="mt-1 text-gray-700">
-        Wette jetzt auf das Endresultat und gewinne 3 Punkte.
+        {{ event.text }}
       </p>
     </div>
     <div v-if="open">
@@ -48,6 +48,10 @@
 <script>
 export default {
   props: {
+    event: {
+      type: Object,
+      required: true,
+    },
     open: {
       type: Boolean,
       default: false,
