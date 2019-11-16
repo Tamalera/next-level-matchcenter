@@ -169,7 +169,7 @@ export default {
         {
           id: 5,
           type: 'info',
-          minute: 72,
+          minute: 73,
           title: 'Wölfli hält Penalty',
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
@@ -177,7 +177,7 @@ export default {
         {
           id: 6,
           type: 'info',
-          minute: 73,
+          minute: 74,
           title: 'Hoarau verletzt',
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
@@ -185,7 +185,7 @@ export default {
         {
           id: 7,
           type: 'info',
-          minute: 75,
+          minute: 76,
           title: 'Ein wunderschöner Angriff',
           text:
             'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
