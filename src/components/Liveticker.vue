@@ -6,9 +6,7 @@
           <h3 class="font-medium">
             {{ n.titel }}
           </h3>
-          <div class="text-sm font-medium text-gray-700">
-            {{ n.minute }}
-          </div>
+          <div class="text-sm font-medium text-gray-700">{{ n.minute }}'</div>
         </div>
         <p class="mt-1 text-gray-700">
           {{ n.text }}

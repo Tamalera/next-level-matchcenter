@@ -1,15 +1,15 @@
 <template>
   <div class="relative h-full">
-    <div class="absolute w-full">
+    <div class="w-full">
       <img src="../assets/fussball_tor.svg" alt="Fussball Tor" class="w-full" />
     </div>
-    <div class="absolute w-full abstand-oben">
+    <div class="absolute top-0 w-full abstand-oben">
       <div class="flex flex-wrap justify-content abstand-rand">
         <div
           v-for="(n, index) in 6"
           :key="index"
           class="w-1/5 abstand-ball"
-          @click="showPlayerDetail(index)"
+          @click="showPlayerDetail(index, 'clicked')"
         >
           <img src="../assets/fussball.svg" alt="Fussball" class="mx-auto" />
         </div>
@@ -27,9 +27,42 @@
   </div>
 </template>
 
+<script>
+import ModalWoBu from '@/components/ModalWoBu.vue'
+
+export default {
+  name: 'FashionCorner',
+  components: {
+    ModalWoBu,
+  },
+  data: function() {
+    return {
+      exampleModalShowing: false,
+      message: '',
+      indexCorner: 0,
+    }
+  },
+  methods: {
+    showPlayerDetail: function(index, event) {
+      this.exampleModalShowing = true
+      this.indexCorner += index
+      if (index == 3) {
+        this.message = 'Gratulation, du hast der richtige Ort gewählt!!'
+      } else {
+        this.message = 'Schade, nicht ganz korrekt'
+      }
+      setTimeout(() => {
+        this.exampleModalShowing = false
+        this.$emit(event, false)
+      }, 2500)
+    },
+  },
+}
+</script>
+
 <style scoped lang="scss">
 .abstand-oben {
-  margin-top: 5rem;
+  margin-top: 3.5rem;
   @media only screen and (min-width: 450px) {
     margin-top: 7rem;
   }
@@ -82,36 +115,3 @@
   }
 }
 </style>
-
-<script>
-import ModalWoBu from '@/components/ModalWoBu.vue'
-
-export default {
-  name: 'FashionCorner',
-  components: {
-    ModalWoBu,
-  },
-  data: function() {
-    return {
-      exampleModalShowing: false,
-      message: '',
-      indexCorner: 0,
-    }
-  },
-  methods: {
-    showPlayerDetail: function(index) {
-      this.exampleModalShowing = true
-      this.indexCorner += index
-      if (index == 3) {
-        this.message = 'Gratulation, du hesch dr richtig Ort gwäuut!!'
-      } else {
-        this.message = 'Schad, ni ganz richtig'
-      }
-      setTimeout(() => {
-        this.exampleModalShowing = false
-        this.$router.push('/')
-      }, 4000)
-    },
-  },
-}
-</script>
