@@ -153,8 +153,7 @@ export default {
           type: 'info',
           minute: 71,
           title: 'Penalty gegen YB',
-          text:
-            'Diam senectus orci cras egestas quisque lectus est magna, congue tincidunt nullam in class sem velit.',
+          text: 'Nach Foul an Ademi gibt es einen Penalty.',
         },
         {
           id: 4,
